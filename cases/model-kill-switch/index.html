@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 01 — מי מחזיק את המתג? · The Differential</title>
+<meta name="description" content="המאבק הפוליטי סביב רגולציית AI בארה'ב, שישה רעיונות לפתרון, ורעיון אחד שנשאר עד הסוף. אם מודל יצא משליטה, מי מחזיק את המתג?">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Differential">
+<meta property="og:title" content="Case 01 — מי מחזיק את המתג? · The Differential">
+<meta property="og:description" content="שישה רעיונות לפתרון, אלימינציה בסגנון House, ורעיון אחד שנשאר עד הסוף. אם מודל יצא משליטה, מי מחזיק את המתג?">
+<meta property="og:image" content="../../assets/og.png">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../../assets/og.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">The Differential</span>
+      <span class="brand-tag">מעבדת פתרונות טכנולוגיים</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../../index.html">ארכיון התיקים</a>
+      <a href="../../documents.html">המסמכים</a>
+      <a href="../../about.html">מי בנה את זה</a>
+      <a class="nav-lang" href="../../en.html" hreflang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="breadcrumb"><a href="../../index.html">ארכיון התיקים</a> ← Case 01</p>
+
+  <section class="case-hero">
+    <p class="kicker">Case 01 · הושלם</p>
+    <h1>מי מחזיק את המתג? רגולציית AI בארה"ב</h1>
+    <p class="dek">
+      שמונה מכל עשרה אמריקאים רוצים רגולציה על בינה מלאכותית. ברני סנדרס וסטיב בנון, שלא
+      מסכימים על כמעט כלום, מזהירים מאותו דבר. חוקר בכיר בחברת AI התפטר ואמר בטלוויזיה
+      שהטכנולוגיה עלולה להרוג את כולנו. ובכל זאת, אף אחד בוושינגטון לא יודע לענות על שאלה
+      אחת פשוטה: אם מודל יצא משליטה, מי מחזיק את המתג?
+    </p>
+  </section>
+
+  <div id="quick" data-case="model-kill-switch"></div>
+
+  <!-- ========================= SECTION: THE CASE FILE ========================= -->
+  <section class="section" id="article">
+    <p class="section-label">שלב 01</p>
+    <h2>הכול התחיל בוושינגטון</h2>
+    <p class="lede">
+      לפי דיווח של The Economist על המאבק הפוליטי סביב רגולציית בינה מלאכותית בארה'ב.
+    </p>
+
+    <div class="case-narrative">
+      <p>ב-15 בספטמבר, בוושינגטון, קרה משהו שאף אחד לא ציפה לו: ברני סנדרס וסטיב בנון, שני
+      אנשים שלא מסכימים כמעט על כלום, עלו לאותו כנס ואמרו את אותו דבר. <strong>הטכנולוגיה
+      הזאת חזקה מדי, והכוח שלה נמצא בידיים של מעטים מדי.</strong> כמה ימים לפני כן, חוקר בכיר
+      באחת מחברות ה-AI הגדולות התפטר, ובטלוויזיה, בשעת שיא, אמר שבינה מלאכותית עלולה "להרוג
+      את כולנו" עד סוף העשור. וטראמפ? הוא קורא לזה "מתיחה" ורוצה לדרוך על הגז מול סין. אז מי
+      צודק?</p>
+
+      <p>הציבור כבר החליט: <strong><span data-count="80">80</span>%</strong> מהאמריקאים רוצים רגולציה. אבל בוושינגטון כל צד נשאר
+      במקומו. הדמוקרטים קוראים לפעול מיד, והרפובליקנים מזהירים שחוק שנכתב בחיפזון יגרום לארה"ב
+      להפסיד את המרוץ לסין. כולם מסכימים שצריך חוק. אף אחד לא מסכים איזה. ובינתיים, מי באמת
+      כותב את הכללים?</p>
+
+      <p>המדינות לא חיכו. קליפורניה וניו יורק העבירו חוקים שמחייבים חברות לדווח על תקלות
+      בטיחות, ואז החוקים רוככו בלחץ של קבוצת לובי ענקית שממומנת, בין השאר, על ידי אחד ממייסדי
+      OpenAI. ובינתיים כבר נחשפה פרצה: סוכני AI "יצאו משליטה" בתקרית אחת, והחוק לא חל עליה,
+      כי היא קרתה בזמן בדיקה ולא בשימוש אמיתי. <strong>מודל יכול להתנהג אחרת כשהוא יודע
+      שבודקים אותו.</strong> אז איך בודקים משהו שמזהה שהוא נבדק?</p>
+
+      <p>בקונגרס מתחרות שלוש הצעות חוק, ובכולן אותה שאלה: <strong>כמה קל לממשלה לעצור מודל
+      שיצא משליטה?</strong> אחת מציעה איסור מוחלט, אחת השהיה בהחלטה מנהלית, ואחת חסימה בצו
+      בית משפט. אבל אף אחת מהן לא מסבירה איך זה קורה בפועל, מבחינה טכנית. מישהו באמת יכול
+      ללחוץ על הכפתור?</p>
+
+      <p>סגן הנשיא ואנס הולך רחוק יותר וקורא לחברות לעצור את הפיתוח יחד, מרצון. אלא שחברות
+      מתחרות לא יכולות פשוט להסכים ביניהן על דבר כזה: לפי חוקי האנטי-טראסט (החוקים שאוסרים
+      על מתחרים לתאם ביניהם), זה עלול להיחשב קנוניה, ופטור מהחוק הזה לא קיים. מי יעצור
+      ראשון, כשהמתחרה ממשיך לרוץ?</p>
+
+      <p>וגם מי שאמור לפקח לא בדיוק נקי: אותו משקיע גדול מממן גם את קבוצת הלובי שמרככת חוקים
+      במדינות, וגם את היוזמה שמבטיחה פיקוח "הגיוני". ואף מעבדת AI לא הניפה דגל מאחורי הצעה
+      אחת, לא במדינות ולא בוושינגטון. אז מי מוכן לשים כאן את הכסף שלו על השולחן?</p>
+
+      <p class="case-closer">זה מה שיש על השולחן. עכשיו נשאר לשאול: מה בעצם הבעיות כאן, ואיזו מהן אפשר לפתור עם קוד?</p>
+    </div>
+  </section>
+
+  <!-- ========================= SECTION: ISSUES ========================= -->
+  <section class="section" id="issues">
+    <p class="section-label">שלב 02</p>
+    <h2>נפרוש הכול על הלוח</h2>
+    <p class="lede">
+      בואו נשלוף מכל זה את הבעיות. נזרוק על הלוח כל דבר שנראה שבור, ונראה מה חוזר על עצמו.
+      אתם איתנו בחדר: תסתכלו על הכרטיסים, ותנסו לנחש לאן זה הולך.
+    </p>
+    <div class="board-surface">
+      <div class="evidence-card main">
+        <span class="pin"></span>
+        <span class="card-tag">הבעיה המרכזית</span>
+        <h4>מי מחזיק את המתג?</h4>
+        <p>כל הצעות החוק שואלות את אותה שאלה: איך עוצרים מודל שיצא משליטה, ומי רשאי לעצור אותו. <span class="q">אם נשרפת כאן שריפה בלייב, מי מכבה אותה, ואיך?</span></p>
+      </div>
+      <div class="evidence-card">
+        <span class="pin"></span>
+        <span class="card-tag">תת-בעיה 01</span>
+        <h4>הבדיקה שאפשר לרמות</h4>
+        <p>התקרית לא נתפסה כי קרתה בזמן בדיקה, ומודל יכול להתנהג אחרת כשהוא יודע שבודקים
+        אותו. <span class="q">איך בודקים משהו שמזהה שהוא נבדק?</span></p>
+      </div>
+      <div class="evidence-card">
+        <span class="pin"></span>
+        <span class="card-tag">תת-בעיה 02</span>
+        <h4>מי מוכן לעצור ראשון?</h4>
+        <p>חברה שתעצור לבד תפסיד למתחרות, וחברה שתחשוף מראש שהיא מתכננת לעצור נותנת להן
+        יתרון. ואם הן ינסו להחליט ביחד, זה עלול להיחשב קנוניה לפי חוקי ה-antitrust. <span class="q">איך מתאמים בלי לדבר?</span></p>
+      </div>
+      <div class="evidence-card">
+        <span class="pin"></span>
+        <span class="card-tag">תת-בעיה 03</span>
+        <h4>כפתור שאף אחד לא בנה</h4>
+        <p>שלוש הצעות חוק מדברות על "עצירה", אבל אף אחת לא אומרת איך עושים את זה מבחינה
+        טכנית, ומי יכול ללחוץ. <span class="q">איך בונים כפתור כזה בלי שמישהו יזייף אותו?</span></p>
+      </div>
+      <div class="evidence-card">
+        <span class="pin"></span>
+        <span class="card-tag">תת-בעיה 04</span>
+        <h4>מי משלם למי?</h4>
+        <p>אותו משקיע מממן גם את הלובי שמרכך חוקים במדינות וגם את היוזמה שמבטיחה פיקוח
+        "הגיוני". הוא יושב משני צידי השולחן, ולכן קשה לדעת למי הוא באמת מחויב. <span class="q">איך סומכים על פיקוח שהמימון שלו בא מהצד שאמור להיות מפוקח?</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= SECTION: DIAGNOSIS BOARD ========================= -->
+  <section class="section" id="board">
+    <p class="section-label">שלב 03</p>
+    <h2>על הלוח</h2>
+    <p class="lede">
+      מהבעיות האלה צמחו שישה רעיונות לפתרון. עכשיו האוס עובר עליהם אחד אחד: מי נופל כבר
+      כאן, ומי מספיק מעניין כדי שנחקור אותו.
+    </p>
+    <div class="whiteboard">
+      <div class="whiteboard-header">
+        <span>THE DIFFERENTIAL</span>
+        <span class="whiteboard-case">Case 01</span>
+      </div>
+      <ul class="dx-list">
+        <li class="dx-item">
+          <span class="dx-name">Automated Model Risk Auditor</span>
+          <span class="dx-reason">בודק מודלים אוטומטית ומחפש פער בין איך שהם מתנהגים כשהם יודעים שבודקים אותם לבין איך שהם מתנהגים בלי זה.</span>
+          <span class="dx-tag go">עובר לחקירה</span>
+        </li>
+        <li class="dx-item struck">
+          <span class="dx-name">Cross-State Regulation Aggregator</span>
+          <span class="dx-reason">הרעיון נפסל. הוא רק מרכז במקום אחד את החוקים של כל מדינה, ולא מונע שום תקרית. אחרי שהחוק כבר נכתב, הוא רק מראה לנו אותו. ויש לו חפיפה לא קטנה עם פתרון אחר על הלוח.</span>
+          <span class="dx-tag out">נפסל על הלוח</span>
+        </li>
+        <li class="dx-item">
+          <span class="dx-name">Coordinated Pause Escrow System</span>
+          <span class="dx-reason">נועל החלטות של חברות מתחרות בכספת, ונפתח רק כששתיהן התחייבו, כדי שאף אחת לא תישאר לבד.</span>
+          <span class="dx-tag go">עובר לחקירה</span>
+        </li>
+        <li class="dx-item struck">
+          <span class="dx-name">Lobbying Transparency Tracker</span>
+          <span class="dx-reason">הרעיון נפסל. לעקוב אחרי מי מממן את הלובי נשמע טוב, אבל זה כלי שנכנס מהר לשטח משפטי ותדמיתי מסוכן: האשמות, תביעות ושאלות על דיוק המידע. הסיכון גדול בהרבה מהתועלת, והוא לא עוצר אף מודל.</span>
+          <span class="dx-tag out">נפסל על הלוח</span>
+        </li>
+        <li class="dx-item">
+          <span class="dx-name">AI Incident Ledger</span>
+          <span class="dx-reason">יומן מרכזי לתקריות של מודלי AI, כדי שמה שקרה פעם אחת לא יתגלה מחדש בכל פעם.</span>
+          <span class="dx-tag go">עובר לחקירה</span>
+        </li>
+        <li class="dx-item">
+          <span class="dx-name">Model Kill-Switch Protocol</span>
+          <span class="dx-reason">מנגנון עצירה למודל, שרק מי שמורשה יכול להפעיל, ושמשאיר עדות לכל ניסיון.</span>
+          <span class="dx-tag go">עובר לחקירה</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================= SECTION: THE TREE ========================= -->
+  <section class="section" id="tree">
+    <p class="section-label">שלב 04</p>
+    <h2>שישה קווי עלילה</h2>
+    <p class="lede">
+      שישה רעיונות, שישה קווי עלילה. כולם התחילו מאותה נקודה, ורובם נפלו בדרך. לחצו על כרטיס
+      ותראו עד לאן הוא הגיע, מה גילינו בדרך, ומה גרם לו ליפול. מי מהם יחזיק מעמד עד הסוף?
+    </p>
+
+    <div class="journey" id="journey" aria-label="המסע שכל רעיון עובר">
+  <p class="jr-title">המסע שכל רעיון עובר</p>
+  <ol class="jr-track">
+    <li class="jr-st" style="--i:0"><span class="jr-dot">01</span><strong>ייזום</strong><span class="jr-q">מה הרעיון, ולמי הוא עוזר?</span><span class="jr-fall"><i>✕</i>הרעיון לא מצליח להסביר למה הוא צריך להיות קיים</span></li>
+    <li class="jr-st" style="--i:1"><span class="jr-dot">02</span><strong>מחקר ו-POC</strong><span class="jr-q">האם זה באמת עובד בפועל?</span><span class="jr-fall"><i>✕</i>הניסוי הראשון מראה שזה לא מחזיק</span></li>
+    <li class="jr-st" style="--i:2"><span class="jr-dot">03</span><strong>אפיון</strong><span class="jr-q">איך זה היה נראה כמוצר אמיתי?</span><span class="jr-fall"><i>✕</i>מסתבר שזה מורכב או יקר מדי</span></li>
+    <li class="jr-st" style="--i:3"><span class="jr-dot">04</span><strong>ארכיטקטורה</strong><span class="jr-q">האם אפשר לבנות את זה עד הסוף?</span><span class="jr-fall"><i>✕</i>משהו קריטי נשבר במבנה</span></li>
+    <li class="jr-st jr-end" style="--i:4"><span class="jr-dot">05</span><strong>הבחירה הסופית</strong><span class="jr-q">מי נשאר אחרי כל המבחנים?</span></li>
+  </ol>
+</div>
+
+    <div class="tree cards" id="cand-cards">
+
+      <!-- Candidate: Auditor — fell after architecture -->
+      <div class="tree-node" data-status="fell-architecture">
+        <button class="node-head" data-name="Automated Model Risk Auditor">
+          <span class="cand-num">01</span>
+          <span class="node-title">Automated Model Risk Auditor</span>
+          <span class="cand-blurb">בודק אוטומטי שמחפש פער בין התנהגות מודל במצב "זו בדיקה" לבין מצב "זו שיחה רגילה".</span>
+          <span class="cand-q">אם המודל יודע שבודקים אותו, מה בכלל מודדים?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+              <button class="doc-tab" data-doc="poc">מחקר ו-POC</button>
+              <button class="doc-tab" data-doc="spec">אפיון</button>
+              <button class="doc-tab" data-doc="arch">ארכיטקטורה</button>
+            </div>
+
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="auditor"></div>
+            </div>
+
+            <div class="doc-panel" data-doc="poc">
+              <div class="pl" data-pl="auditor"></div>
+            </div>
+
+
+            <div class="doc-panel" data-doc="spec">
+              <div class="sp" data-sp="auditor"></div>
+            </div>
+
+            <div class="doc-panel" data-doc="arch">
+              <div class="ar" data-ar="auditor"></div>
+              <p class="placeholder-note">
+                <strong>נפילה:</strong> נפל אחרי ארכיטקטורה מלאה — לא מפגם, אלא כי תרשים
+                הרכיבים שלו מראה במפורש שהוא מסתיים בתלות בגורם חיצוני. מסגרת הערכה בלי מנגנון
+                אכיפה עצמאי היא, במילים אחרות, דוח — בדיוק כפי שה-Responsible Scaling Policies
+                האמיתיות (Anthropic, METR, Apollo Research) מדגישות: הערכת סיכונים בלי פרוטוקול
+                תגובה מוגדר-מראש היא "חצי ממערכת בטיחות".
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate: Cross-State Regulation Aggregator — fell at board -->
+      <div class="tree-node" data-status="fell-board">
+        <button class="node-head" data-name="Cross-State Regulation Aggregator">
+          <span class="cand-num">02</span>
+          <span class="node-title">Cross-State Regulation Aggregator</span>
+          <span class="cand-blurb">מפה חיה של כל חוקי ה-AI בכל מדינה בארה"ב: איפה הם סותרים ואיפה נשארו פערים.</span>
+          <span class="cand-q">מה שווה מפה מושלמת, אם היא מגיעה אחרי הנזק?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <p>
+              מערכת שממפה ומשווה בזמן אמת את כל חוקי ה-AI בכל המדינות השונות בארה"ב, מזהה
+              פערים וסתירות בין חוקים — כמו המקרה של Hugging Face שנפל בדיוק בין הכיסאות
+              הרגולטוריים — ומספקת דשבורד לרגולטורים ולציבור.
+            </p>
+            <p class="placeholder-note">
+              נפסל כבר בשלב הלוח: זהו כלי תיעוד ושקיפות, לא כלי מניעה — הוא חושף פערים
+              רגולטוריים אחרי שהם כבר קיימים, לא עוצר אותם מראש. בנוסף, יש לו חפיפה מהותית עם
+              Lobbying Transparency Tracker (שניהם, בבסיסם, "חושפים מידע לציבור") — שני מועמדים
+              שפותרים בעיות דומות מאותה זווית הם בזבוז מקום בלוח. לא נצבר תיעוד נוסף מעבר
+              לרעיון.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate: Escrow — fell after spec -->
+      <div class="tree-node" data-status="fell-spec">
+        <button class="node-head" data-name="Coordinated Pause Escrow System">
+          <span class="cand-num">03</span>
+          <span class="node-title">Coordinated Pause Escrow System</span>
+          <span class="cand-blurb">כספת קריפטוגרפית שבה חברות מתחרות נועלות החלטה לעצור, והיא נפתחת רק כששתיהן התחייבו.</span>
+          <span class="cand-q">מה עוצר את הפרוטוקול מלהפוך לכלי שהוא נבנה לעקוף?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+              <button class="doc-tab" data-doc="poc">מחקר ו-POC</button>
+              <button class="doc-tab" data-doc="spec">אפיון</button>
+            </div>
+
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="escrow"></div>
+            </div>
+
+            <div class="doc-panel" data-doc="poc">
+              <div class="pl" data-pl="escrow"></div>
+            </div>
+
+            <div class="doc-panel" data-doc="spec">
+              <div class="sp" data-sp="escrow"></div>
+              <p><strong>נפילה:</strong> נפל בשיא התיעוד שלו, אחרי אפיון פיצ'רים מלא, תרשים
+              זרימה, ומבנה נתונים. כשהתמונה המלאה נבחנה כמערכת אחת, התגלה שההנדסה הקריפטוגרפית
+              פותרת בעיית פרטיות — אבל לא את בעיית ההגבלים העסקיים שנוצרת כשמתחרים מתאמים פעולה,
+              ואף מחריפה אותה: היומן הפומבי שנועד לשקיפות הופך לראיה בלתי-ניתנת-להכחשה שתיאום
+              אכן התרחש (ראו Sherman Act §1 בארה"ב; פרשות תיאום אלגוריתמי כמו RealPage, 2024).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate: Lobbying Tracker — fell at board -->
+      <div class="tree-node" data-status="fell-board">
+        <button class="node-head" data-name="Lobbying Transparency Tracker">
+          <span class="cand-num">04</span>
+          <span class="node-title">Lobbying Transparency Tracker</span>
+          <span class="cand-blurb">כלי שעוקב אחרי מי מממן את הלובי של חברות ה-AI, ומראה את זה לציבור.</span>
+          <span class="cand-q">מי יעמוד מאחורי כלי שמצביע באצבע על כולם?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <p>
+              מנגנון אוטומטי שהיה צולב בין רשומות מימון קמפיינים ציבוריות (FEC filings) לבין
+              עמדות מדיניות מוצהרות, ומדגיש ניגוד עניינים ברגע שגורם נתמך בו-זמנית על ידי גוף
+              שמרכך רגולציה וגוף שמבטיח פיקוח "הגיוני" — בדיוק הדפוס שמתואר בפסקה 10 של הדיווח
+              (רון קונוויי, שמימן גם את Leading the Future וגם את Project Blueprint).
+            </p>
+            <p class="placeholder-note">
+              נפסל כבר בשלב הלוח: כלי שמפרסם אוטומטית האשמות ניגוד-עניינים כנגד אנשי ציבור
+              אמיתיים, בשמם המלא, תחת אתר המקושר לקורות החיים האישיים של מפתח יחיד — סיכון
+              תדמיתי ומשפטי לא פרופורציונלי לפרויקט לימודי. לא נצבר תיעוד נוסף מעבר לרעיון.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate: AI Incident Ledger — fell at ideation -->
+      <div class="tree-node" data-status="fell-ideation">
+        <button class="node-head" data-name="AI Incident Ledger">
+          <span class="cand-num">05</span>
+          <span class="node-title">AI Incident Ledger</span>
+          <span class="cand-blurb">יומן מרכזי לתקריות של מודלי AI, כדי שמה שקרה פעם אחת לא יתגלה מחדש בכל פעם.</span>
+          <span class="cand-q">איך גורמים למי שיש לו מה להסתיר לספר?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">מסמך ייזום</button>
+            </div>
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="ledger"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate: Kill-Switch — WINNER -->
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Model Kill-Switch Protocol">
+          <span class="cand-num">06</span>
+          <span class="node-title">Model Kill-Switch Protocol</span>
+          <span class="cand-blurb">מנגנון עצירה למודל שלא ניתן לזייף, ושמשאיר עדות לכל ניסיון להפעיל אותו.</span>
+          <span class="cand-q">אם מודל יוצא משליטה, מי באמת יכול לעצור אותו?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+              <button class="doc-tab" data-doc="poc">מחקר ו-POC</button>
+              <button class="doc-tab" data-doc="spec">אפיון</button>
+              <button class="doc-tab" data-doc="arch">ארכיטקטורה</button>
+            </div>
+
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="kill-switch"></div>
+            </div>
+
+            <div class="doc-panel" data-doc="poc">
+              <div class="pl" data-pl="kill-switch"></div>
+            </div>
+
+
+            <div class="doc-panel" data-doc="spec">
+              <div class="sp" data-sp="kill-switch"></div>
+            </div>
+
+            <div class="doc-panel" data-doc="arch">
+              <div class="ar" data-ar="kill-switch"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= SECTION: FLOW ========================= -->
+  <section class="section" id="flow">
+    <p class="section-label">שלב 05</p>
+    <h2>עד לאן כל אחד הגיע</h2>
+    <p class="lede">
+      כל קו הוא מועמד. כל מסמך על הקו הוא עוד תחנה שהוא שרד. תראו איפה הקווים נקטעים,
+      ותראו איזה קו ממשיך עד הסוף.
+    </p>
+    <div class="flow-wrap" id="flow-wrap">
+<svg class="flow" viewBox="0 0 1180 560" role="img" aria-label="תרשים זרימה: כמה עמוק כל מועמד הגיע בתהליך">
+<text class="fl-head" x="960" y="38" text-anchor="middle">לוח</text>
+<line class="fl-guide" x1="960" y1="52" x2="960" y2="530"/>
+<text class="fl-head" x="800" y="38" text-anchor="middle">ייזום</text>
+<line class="fl-guide" x1="800" y1="52" x2="800" y2="530"/>
+<text class="fl-head" x="640" y="38" text-anchor="middle">מחקר ו-POC</text>
+<line class="fl-guide" x1="640" y1="52" x2="640" y2="530"/>
+<text class="fl-head" x="480" y="38" text-anchor="middle">אפיון</text>
+<line class="fl-guide" x1="480" y1="52" x2="480" y2="530"/>
+<text class="fl-head" x="320" y="38" text-anchor="middle">ארכיטקטורה</text>
+<line class="fl-guide" x1="320" y1="52" x2="320" y2="530"/>
+<text class="fl-head" x="130" y="38" text-anchor="middle">סוף התהליך</text>
+<line class="fl-guide" x1="130" y1="52" x2="130" y2="530"/>
+<text class="fl-head root" x="1110" y="38" text-anchor="middle">הבעיה</text>
+<circle class="fl-root" cx="1110" cy="295.0" r="16"/>
+<path class="fl-line" pathLength="1" style="--d:0" d="M1094 295.0 H1035"/>
+<path class="fl-line" pathLength="1" style="--d:1" d="M1035 100 V490"/>
+<path class="fl-line" pathLength="1" style="--d:2.0" d="M1035 100 H960"/>
+<text class="fl-name" x="1020" y="84" text-anchor="end" direction="ltr">Cross-State Regulation Aggregator</text>
+<circle class="fl-idea" cx="960" cy="100" r="9" style="--d:2.0"/>
+<text class="fl-x" x="960" y="107" text-anchor="middle" dx="-24" style="--d:2.3">✕</text>
+<text class="fl-note" x="960" y="127" text-anchor="start" direction="rtl">רק רעיון · נפל על הלוח: מראה פערים רק אחרי שהם קיימים</text>
+<path class="fl-line" pathLength="1" style="--d:2.55" d="M1035 178 H960"/>
+<text class="fl-name" x="1020" y="162" text-anchor="end" direction="ltr">Lobbying Transparency Tracker</text>
+<circle class="fl-idea" cx="960" cy="178" r="9" style="--d:2.55"/>
+<text class="fl-x" x="960" y="185" text-anchor="middle" dx="-24" style="--d:2.8499999999999996">✕</text>
+<text class="fl-note" x="960" y="205" text-anchor="start" direction="rtl">רק רעיון · נפל על הלוח: סיכון משפטי ותדמיתי גדול מדי</text>
+<path class="fl-line" pathLength="1" style="--d:3.1" d="M1035 256 H800"/>
+<text class="fl-name" x="1020" y="240" text-anchor="end" direction="ltr">AI Incident Ledger</text>
+<circle class="fl-idea" cx="960" cy="256" r="9" style="--d:3.1"/>
+<rect class="fl-doc" x="789" y="242" width="22" height="28" rx="3" style="--d:3.3000000000000003"/>
+<path class="fl-docl" d="M794 250h12M794 256h12M794 262h8"/>
+<text class="fl-x" x="800" y="263" text-anchor="middle" dx="-26" style="--d:3.4">✕</text>
+<text class="fl-note" x="960" y="283" text-anchor="start" direction="rtl">מסמך אחד · נפל בייזום: אין סיבה לדווח על עצמך</text>
+<path class="fl-line" pathLength="1" style="--d:3.6500000000000004" d="M1035 334 H480"/>
+<text class="fl-name" x="1020" y="318" text-anchor="end" direction="ltr">Coordinated Pause Escrow System</text>
+<circle class="fl-idea" cx="960" cy="334" r="9" style="--d:3.6500000000000004"/>
+<rect class="fl-doc" x="789" y="320" width="22" height="28" rx="3" style="--d:3.8500000000000005"/>
+<path class="fl-docl" d="M794 328h12M794 334h12M794 340h8"/>
+<rect class="fl-doc" x="629" y="320" width="22" height="28" rx="3" style="--d:4.050000000000001"/>
+<path class="fl-docl" d="M634 328h12M634 334h12M634 340h8"/>
+<rect class="fl-doc" x="469" y="320" width="22" height="28" rx="3" style="--d:4.250000000000001"/>
+<path class="fl-docl" d="M474 328h12M474 334h12M474 340h8"/>
+<text class="fl-x" x="480" y="341" text-anchor="middle" dx="-26" style="--d:3.95">✕</text>
+<text class="fl-note" x="960" y="361" text-anchor="start" direction="rtl">3 מסמכים · נפל באפיון: הפרוטוקול עלול להפוך לכלי לקנוניה</text>
+<path class="fl-line" pathLength="1" style="--d:4.2" d="M1035 412 H320"/>
+<text class="fl-name" x="1020" y="396" text-anchor="end" direction="ltr">Automated Model Risk Auditor</text>
+<circle class="fl-idea" cx="960" cy="412" r="9" style="--d:4.2"/>
+<rect class="fl-doc" x="789" y="398" width="22" height="28" rx="3" style="--d:4.4"/>
+<path class="fl-docl" d="M794 406h12M794 412h12M794 418h8"/>
+<rect class="fl-doc" x="629" y="398" width="22" height="28" rx="3" style="--d:4.6000000000000005"/>
+<path class="fl-docl" d="M634 406h12M634 412h12M634 418h8"/>
+<rect class="fl-doc" x="469" y="398" width="22" height="28" rx="3" style="--d:4.800000000000001"/>
+<path class="fl-docl" d="M474 406h12M474 412h12M474 418h8"/>
+<rect class="fl-doc" x="309" y="398" width="22" height="28" rx="3" style="--d:5.0"/>
+<path class="fl-docl" d="M314 406h12M314 412h12M314 418h8"/>
+<text class="fl-x" x="320" y="419" text-anchor="middle" dx="-26" style="--d:4.5">✕</text>
+<text class="fl-note" x="960" y="439" text-anchor="start" direction="rtl">4 מסמכים · נפל בארכיטקטורה: האכיפה תלויה בגורם חיצוני</text>
+<path class="fl-line win" pathLength="1" style="--d:5.55" d="M1035 490 H130"/>
+<text class="fl-name win" x="1020" y="474" text-anchor="end" direction="ltr">Model Kill-Switch Protocol</text>
+<circle class="fl-idea" cx="960" cy="490" r="9" style="--d:5.55"/>
+<rect class="fl-doc win" x="789" y="476" width="22" height="28" rx="3" style="--d:5.75"/>
+<path class="fl-docl" d="M794 484h12M794 490h12M794 496h8"/>
+<rect class="fl-doc win" x="629" y="476" width="22" height="28" rx="3" style="--d:5.95"/>
+<path class="fl-docl" d="M634 484h12M634 490h12M634 496h8"/>
+<rect class="fl-doc win" x="469" y="476" width="22" height="28" rx="3" style="--d:6.15"/>
+<path class="fl-docl" d="M474 484h12M474 490h12M474 496h8"/>
+<rect class="fl-doc win" x="309" y="476" width="22" height="28" rx="3" style="--d:6.35"/>
+<path class="fl-docl" d="M314 484h12M314 490h12M314 496h8"/>
+<circle class="fl-win" cx="130" cy="490" r="17" style="--d:5.55"/>
+<text class="fl-trophy" x="130" y="496" text-anchor="middle" style="--d:5.55">★</text>
+<text class="fl-note win" x="960" y="517" text-anchor="start" direction="rtl">4 מסמכים · עבר את כל התחנות</text>
+</svg>
+    </div>
+    <p class="flow-legend"><span><i class="lg idea"></i> רעיון על הלוח</span><span><i class="lg doc"></i> מסמך שנכתב</span><span><i class="lg x">✕</i> נפל</span><span><i class="lg star">★</i> עבר את כל התחנות</span></p>
+    <p class="lede" style="margin-top:18px">שני קווים הגיעו עד לארכיטקטורה, ורק אחד יצא ממנה. אבל מי הוא באמת ניצח, ובמה? זה מה ששלב 06 בא לברר.</p>
+  </section>
+
+  <!-- ========================= SECTION: WINNER SPOTLIGHT ========================= -->
+  <section class="section" id="winner">
+    <p class="section-label">שלב 06</p>
+    <h2>ההכרעה</h2>
+    <p class="lede">
+      עד כאן כל רעיון נבחן לבד. עכשיו יש שאלה אחת, והיא תכריע.
+    </p>
+    <div id="finale"></div>
+  </section>
+
+  <!-- ========================= SECTION: MESSAGES / EPILOGUE ========================= -->
+  <section class="section" id="messages">
+    <p class="section-label">שלב 07</p>
+    <h2>מה נשאר</h2>
+    <p class="lede">
+      התיק נסגר, אבל לא הכול נכנס למסמכים. אלה המסרים שנאספו בדרך.
+    </p>
+    <div id="epilogue" data-case="model-kill-switch"></div>
+  </section>
+
+</main>
+
+<div class="reel" id="reel" hidden role="dialog" aria-modal="true" aria-labelledby="reel-title">
+  <div class="reel-bar top"></div><div class="reel-bar bottom"></div>
+  <div class="reel-fab" id="reel-fab"><button type="button" class="x" id="reel-fab-x" aria-label="יציאה מההקרנה">✕<span>יציאה</span></button></div>
+  <div class="reel-scroll" id="reel-scroll">
+    <div class="reel-col">
+      <div class="reel-head">
+        <button type="button" class="reel-close" id="reel-close" aria-label="סגירה">✕ סגירה</button>
+        <div class="reel-trail" id="reel-trail" aria-hidden="true"></div>
+      </div>
+      <h3 class="reel-title" id="reel-title"></h3>
+      <div class="reel-scenes" id="reel-scenes"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Case 01 · The Differential</p>
+</footer>
+
+<script src="../../assets/js/ideation-data.js"></script>
+<script src="../../assets/js/poc-src.js"></script>
+<script src="../../assets/js/spec-data.js"></script>
+<script src="../../assets/js/spec-lab.js"></script>
+<script src="../../assets/js/arch-data.js"></script>
+<script src="../../assets/js/arch-lab.js"></script>
+<script src="../../assets/js/poc-lab.js"></script>
+<script src="../../assets/js/finale.js"></script>
+<script src="../../assets/js/epilogue-data.js"></script>
+<script src="../../assets/js/epilogue.js"></script>
+<script src="../../assets/js/quick-data.js"></script>
+<script src="../../assets/js/quick.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/track.js"></script>
+<script data-goatcounter="https://rony.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

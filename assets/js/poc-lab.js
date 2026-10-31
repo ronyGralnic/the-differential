@@ -1,7 +1,7 @@
 /* POC view + live lab (Python via Pyodide, loaded only when the user presses run) */
 (function(){
   const SRC=(document.currentScript&&document.currentScript.src)||'';
-  const BASE=SRC.replace(/js\/poc-lab\.js.*$/,'');
+  const BASE=SRC.replace(/assets\/js\/poc-lab\.js.*$/,'');
   const PYODIDE='https://cdn.jsdelivr.net/npm/pyodide@314.0.7/pyodide.js';
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS='http://www.w3.org/2000/svg';
@@ -148,6 +148,7 @@
         const py=await loadPy(m=>status.textContent=m);
         status.textContent='';
         py.__mods=py.__mods||{}; if(!py.__mods[cfg.mod]){ const code=(window.POC_SRC&&window.POC_SRC[slug])||await fetch(BASE+cfg.py).then(r=>r.text()); py.FS.writeFile(cfg.mod+'.py',code); py.__mods[cfg.mod]=true; }
+        if(cfg.pkgs){ status.textContent='טוען '+cfg.pkgs.join(', ')+'… (רק בפעם הראשונה)'; await py.loadPackage(cfg.pkgs); try{ py.runPython('import '+cfg.pkgs.join(',')); }catch(e){ throw new Error('לא ניתן לטעון את '+cfg.pkgs.join(', ')+' (בדקו חיבור לאינטרנט ונסו שוב)'); } status.textContent=''; }
         const out=JSON.parse(py.runPython('import json,'+cfg.mod+'\njson.dumps('+cfg.mod+'.run("'+sc+'"))'));
         log.textContent='$ python '+cfg.code+'  # scenario: '+sc+'\n'; stateTx.textContent='';
         Object.values(nodeEl).forEach(g=>g.classList.remove('locked'));
@@ -204,7 +205,7 @@
     const s7=H('section','pl-sec'); s7.append(H('h5','pl-h','הורדה')); const dl=H('div','pl-dl');
     dl.innerHTML='<div class="pl-dlc" dir="rtl"><strong>מסמך ה-POC להורדה</strong><small>המטרה, הרכיבים, הגבולות והמסקנה, בעברית.</small><span><a href="'+cfg.dl+'he.pdf" download>PDF</a><a href="'+cfg.dl+'he.docx" download>Word</a></span></div>'+
       '<div class="pl-dlc" dir="ltr"><strong>POC document, ready to download</strong><small>Goal, components, limits and conclusion, in English.</small><span><a href="'+cfg.dl+'en.pdf" download>PDF</a><a href="'+cfg.dl+'en.docx" download>Word</a></span></div>'+
-      '<div class="pl-dlc" dir="ltr"><strong>Source code</strong><small>Runs natively with Python 3, no dependencies.</small><span><a href="'+BASE+cfg.py+'" download>'+cfg.code+'</a></span></div>';
+      '<div class="pl-dlc" dir="ltr"><strong>Source code</strong><small>'+(cfg.codeNote||'Runs natively with Python 3, no dependencies.')+'</small><span><a href="'+BASE+cfg.py+'" download>'+cfg.code+'</a></span></div>';
     s7.append(dl); root.append(s7);
     /* reveal on scroll */
     root.querySelectorAll('.pl-sec, .pl-hero').forEach(el=>{
@@ -212,5 +213,6 @@
       new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ el.classList.add('in'); o.disconnect(); } }),{threshold:.15}).observe(el);
     });
   }
+  Object.assign(CFG, window.POC_CFG||{});
   document.querySelectorAll('.pl[data-pl]').forEach(r=>{ const s=r.dataset.pl; if(CFG[s]) build(r,CFG[s],s); });
 })();

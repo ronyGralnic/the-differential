@@ -330,7 +330,9 @@
     ds.append(scoreEl); closeQ(ds,C.dec_q);
 
     /* ===== 8. knob (committee / reveal / judges) ===== */
-    if(D.knob){
+    const WG=D.knob&&D.knobx.widget&&window.SPEC_WIDGETS&&window.SPEC_WIDGETS[D.knobx.widget];
+    if(WG){ const ks=sec('sp-kn',D.knob.title,D.br.knob); ks.append(gp(D.knobx.intro,'sp-p')); WG(ks,D.knobx,{H,gp,reduce}); ks.append(gp(D.knobx.dilemma,'sp-dil')); ks.append(H('p','sp-note',D.knob.note)); closeQ(ks,C.knob_q); }
+    else if(D.knob){
     const KX=D.knobx; const ks=sec('sp-kn',D.knob.title,D.br.knob); ks.append(gp(KX.intro,'sp-p'));
     const K=Object.assign({},C.knob_l,KX.K||{}); const mode=KX.mode||'committee'; const NM=D.knob.n||5; const st5=Array.from({length:NM},(_,i)=>mode==='judges'?0:(i===1?1:0)); let thr=D.knob.thr;
     const lg=H('div','sp-lg'); KX.legend.forEach((l,i)=>{ const d=H('div','s'+i); d.append(H('b','',l[0]),H('span','',l[1])); lg.append(d); }); ks.append(lg);
@@ -363,6 +365,11 @@
     const hd=H('div','sp-drh'); hd.append(H('span','',C.delta_from),H('span','',''),H('span','',C.delta_to)); dr.append(hd);
     D.delta.forEach(([a,b],i)=>{ const r=H('div','sp-drw'); r.style.setProperty('--i',i); r.append(H('span','sp-da',a),H('span','sp-dar','←'),H('span','sp-db',b)); dr.append(r); });
     closeQ(de,C.delta_q);
+
+    /* ===== 9b. what closed / what stays open (optional) ===== */
+    if(D.close){ const Z=D.close; const cs=sec('sp-cl',Z.h,null); cs.append(gp(Z.p,'sp-p')); const g2=H('div','sp-clg'); cs.append(g2);
+      [['ok',Z.lc,Z.closed],['op',Z.lo,Z.open]].forEach(([k,t,arr])=>{ const c=H('div','sp-clc '+k); c.append(H('b','',t)); const ul=H('ul'); arr.forEach(x=>ul.append(gp(x,'','li'))); c.append(ul); g2.append(c); });
+      closeQ(cs,Z.q); }
 
     /* ===== 10. downloads ===== */
     const dd=sec('sp-dl',C.dl_h,D.br.dl);

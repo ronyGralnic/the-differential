@@ -7,8 +7,8 @@
   if(!reel||!scenes) return;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const H=(t,c,x)=>{ const e=document.createElement(t); if(c) e.className=c; if(x!=null) e.textContent=x; return e; };
-  const KIND={'ייזום':'ideation','מחקר ו-POC':'poc','אפיון':'spec','ארכיטקטורה':'arch','על הלוח':'board'};
-  const KLAB={board:'על הלוח · כרטיס בטוש',ideation:'מסמך ייזום · שרטוט על מפית',poc:'מחקר ו-POC · שולחן המעבדה',spec:'אפיון · כרטיסי הפיצ\'רים',arch:'ארכיטקטורה · השרטוט ההנדסי'};
+  const KIND={'ייזום':'ideation','מחקר ו-POC':'poc','אפיון':'spec','ארכיטקטורה':'arch','מסמך עיצוב':'design','על הלוח':'board'};
+  const KLAB={board:'על הלוח · כרטיס בטוש',ideation:'מסמך ייזום · שרטוט על מפית',poc:'מחקר ו-POC · שולחן המעבדה',spec:'אפיון · כרטיסי הפיצ\'רים',arch:'ארכיטקטורה · השרטוט ההנדסי',design:'מסמך עיצוב · מחברת המהנדס'};
   const SARAH='<svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="28" fill="#2c3b3a"/><path d="M14 26 q2 -16 16 -16 q14 0 16 16 q-4 -6 -16 -6 q-12 0 -16 6z" fill="#8a5a3b"/><circle cx="30" cy="30" r="12" fill="#f2d2b6"/><circle cx="26" cy="29" r="1.6" fill="#1e2422"/><circle cx="34" cy="29" r="1.6" fill="#1e2422"/><path d="M26 35 q4 3 8 0" stroke="#1e2422" stroke-width="1.6" fill="none"/><path d="M12 58 q4 -14 18 -14 q14 0 18 14z" fill="#6fbdb3"/><rect x="22" y="26" width="7" height="5" rx="2" fill="none" stroke="#1e2422" stroke-width="1.2"/><rect x="31" y="26" width="7" height="5" rx="2" fill="none" stroke="#1e2422" stroke-width="1.2"/></svg>';
   const tm=(id,w)=>`<button class="tm" data-t="${id}">${w}</button>`;
 
@@ -86,8 +86,24 @@
          'שלושה רכיבים יושבים בחוץ: מאגר הזיהוי העולמי, רשת אקראיות ציבורית, והדיווח הרגיל שהקרנות כבר מגישות. אבל אף אחד מהם לא נחוץ לתשובה עצמה, ולכל אחד יש תחליף.',
          'והקלט שהתשובה תלויה בו, מה כל גוף מחזיק, נכנס דרך המערכת עצמה, ויוצא ממנה מאומת.'],
      punch:'המעגל נסגר בתוך הגבולות. המרשם ממשיך הלאה.',
-     sarah:'"אז בסוף הרבעון אני רואה את כל השוק, ואף קרן לא נחשפה. גם לא בפניי."'}],
+     sarah:'"אז בסוף הרבעון אני רואה את כל השוק, ואף קרן לא נחשפה. גם לא בפניי."'},
+    {kind:'design', exH:'מה העיצוב קובע', ctx:'הארכיטקטורה קבעה אילו רכיבים יש ומה עובר ביניהם. מסמך העיצוב יורד קומה אחת: מה יש בתוך כל רכיב. אם הארכיטקטורה היא התוכנית של הבית, העיצוב הוא חלוקת העבודה בתוך כל חדר: מי עושה מה, למה אסור לו לגעת, ומה קורה לכל חפץ מהרגע שהוא נכנס בדלת ועד שהוא יוצא.',
+     ex:['עשרים "עובדים", מחלקות בתוכנה, ולכל אחד תפקיד אחד ורשימה של מה שאסור לו לעשות. המחלקה שיודעת מי הקרן לא רואה אף פעם דוח, והמחלקה שמקבלת דוחות לא יודעת מי שלח.',
+         'מחזור חיים לכל דוח: התקבל, אסימון תקין, בדרך לעוזרים, אומת, נצבר, נמחק. כל ענף שלא מסתיים באימות מסתיים בדחייה או בהסגר. אין "כמעט מאומת".',
+         'שני מסדי נתונים בלי שום עמודה משותפת: אצל הרגולטור אין מספר דוח, ואצל השרתים אין שם של קרן. ההפרדה לא כתובה בנוהל. היא כתובה בטבלאות.',
+         'וסדר בנייה בשבע גרסאות, משני שרתים וסכום אחד ועד תקופת דיווח מלאה בין שלוש רשויות. לכל גרסה מבחן יציאה.'],
+     punch:'ההבטחה "לחבר בלי לראות" הפכה לשורות קונקרטיות: אין שדה שמחבר זהות לתוכן, ואין מעבר שמוביל לסכום לא מאומת.',
+     sarah:'"כלומר גם אם מישהו ירצה, אין לו איפה לחפש מי שלח מה?"'}],
    vis:{
+    design(box){ const ST=[['התקבל',350],['אסימון',270],['בדרך',190],['אומת',110],['בסכום',30]];
+      box.innerHTML=`<svg viewBox="0 0 420 200" class="rx-svg nb" role="img" aria-label="מחברת המהנדס: דוח אחד עובר בין המצבים שלו"><defs><pattern id="nbg" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0 L0 0 0 12" class="nb-grid"/></pattern></defs><rect width="420" height="200" fill="url(#nbg)" class="nb-paper"/>
+       ${ST.map(([t,x],i)=>`<g class="nb-s" data-i="${i}"><rect x="${x}" y="40" width="64" height="34" rx="8"/><text x="${x+32}" y="62" text-anchor="middle">${t}</text></g>${i<4?`<path d="M${x} 57 L${x-14} 57" class="nb-e"/>`:''}`).join('')}
+       <g class="nb-s bad" data-i="9"><rect x="180" y="130" width="84" height="34" rx="8"/><text x="222" y="152" text-anchor="middle">נדחה, עם סיבה</text></g><path d="M222 74 L222 128" class="nb-e r"/>
+       <path d="M200 38 C200 14 246 14 246 38" class="nb-e g"/><text x="223" y="12" text-anchor="middle" class="nb-t">ממתין</text>
+       <circle r="8" cx="382" cy="57" class="nb-tok"/><text x="210" y="192" text-anchor="middle" class="nb-t nb-cap"></text></svg>`;
+      const tok=box.querySelector('.nb-tok'), cap=box.querySelector('.nb-cap'); const sl=ms=>new Promise(r=>setTimeout(r,ms)); let run=false;
+      const go=async(path,msg)=>{ if(run) return; run=true; box.querySelectorAll('.nb-s').forEach(s=>s.classList.remove('on')); for(const i of path){ const s=box.querySelector('.nb-s[data-i="'+i+'"]'); s.classList.add('on'); const r=s.querySelector('rect'); tok.setAttribute('cx',+r.getAttribute('x')+32+(i===9?10:0)); tok.setAttribute('cy',+r.getAttribute('y')-6); await sl(520); } cap.textContent=msg; run=false; };
+      const row=H('div','rx-acts'); [['דוח תקין',[0,1,2,3,4],'אומת, ונכנס לסכום.'],['עוזר נופל',[0,1,2,2,2,3,4],'חיכה, ולא הלך לאיבוד.'],['הוכחה נכשלה',[0,1,2,9],'נדחה. לא נכנס לשום סכום.']].forEach(([l,p,m])=>{ const b=H('button','rg-b',l); b.type='button'; b.addEventListener('click',()=>go(p,m)); row.append(b); }); box.append(row); },
     ideation(box){ const rnd=()=>Math.floor(Math.random()*19999)-9999;
       const L=x=>'\u2066'+x.toLocaleString('en-US')+'\u2069'; const draw=()=>{ const a=rnd(), b=rnd(), c=100-a-b; box.querySelectorAll('.rg-sh').forEach((t,i)=>t.textContent=L([a,b,c][i])); box.querySelector('.rg-sum').textContent='\u2066'+`(${a}) + (${b}) + (${c}) = 100`+'\u2069'; };
       box.innerHTML=`<svg viewBox="0 0 420 230" class="rx-svg napkin" role="img" aria-label="שרטוט על מפית: המספר 100 מתפצל לשלושה חלקים אקראיים, וכל חלק הולך לשרת אחר">

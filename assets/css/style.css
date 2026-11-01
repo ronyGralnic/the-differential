@@ -3360,7 +3360,7 @@ body.st-plain .st-ch{ opacity:1; }
 .dz-lens,.dz-gr,.dz-ctl{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .dz-lb{ all:unset; cursor:pointer; padding:6px 14px; border-radius:99px; border:1.5px solid #24408e; color:#24408e; font-weight:600; font-size:14px; background:#fff; } .dz-lb.on,.dz-lb:hover{ background:#24408e; color:#fff; } .dz-lb:disabled{ opacity:.45; cursor:default; } .dz-lb:focus-visible{ outline:3px solid var(--gold); }
 .dz-lt{ min-height:1.6em; font-weight:600; color:#1d2a44; }
-.dz-org{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; } .dz-zone{ border:1.5px dashed #9fb0c8; border-radius:10px; padding:10px; display:flex; flex-wrap:wrap; gap:6px; align-content:start; } .dz-zn{ width:100%; font-size:12.5px; color:#5b6b8a; font-weight:600; } .z-x{ margin-top:4px; }
+.dz-org{ display:grid; grid-template-columns:repeat(var(--n,3),1fr); gap:10px; } .dz-zone{ border:1.5px dashed #9fb0c8; border-radius:10px; padding:10px; display:flex; flex-wrap:wrap; gap:6px; align-content:start; } .dz-zn{ width:100%; font-size:12.5px; color:#5b6b8a; font-weight:600; } .z-x{ margin-top:4px; }
 .dz-cl{ all:unset; cursor:pointer; background:#fff; border:1.5px solid #24408e; border-radius:6px; padding:4px 8px; display:grid; transition:opacity .3s, transform .2s, background .2s; } .dz-cl b{ font-size:13.5px; } .dz-cl code{ font-size:11px; color:#5b6b8a; direction:ltr; text-align:right; }
 .dz-cl:hover{ transform:translateY(-2px); } .dz-cl.sel{ background:#dfe9fb; } .dz-cl:focus-visible{ outline:2px solid var(--gold); }
 .dz-org:not([data-lens="all"])[data-lens] .dz-cl:not(.lit){ opacity:.25; } .dz-cl.lit{ background:#ffe9a8; border-color:#c08a1e; }
@@ -3396,3 +3396,6 @@ body.st-plain .st-ch{ opacity:1; }
 .dz-full{ background:#fff; border-radius:10px; padding:10px 14px; } .dz-full summary{ cursor:pointer; color:var(--ink-dim); } .dz-md img{ max-width:100%; display:block; margin:10px 0; border:1px solid #d6dee8; border-radius:6px; } .dz-md pre{ background:#f4f6f9; padding:10px; overflow-x:auto; font-size:12.5px; } .dz-tw{ overflow-x:auto; } .dz-md table{ border-collapse:collapse; font-size:13.5px; min-width:520px; } .dz-md th,.dz-md td{ border:1px solid #e3e8ef; padding:5px 8px; text-align:start; vertical-align:top; }
 @media (max-width:700px){ .dz{ padding:10px; } .dz-rules,.dz-org,.dz-krules,.dz-cabs{ grid-template-columns:1fr; } .dz-f{ grid-template-columns:1fr; gap:0; } .dz-cells{ grid-template-columns:repeat(25,1fr); } .dz-race{ grid-template-columns:1fr; } .dz-kit.run .dz-w.a,.dz-kit.run .dz-w.b{ transform:none; } }
 .dz .dz-t{ color:#1d2a44; opacity:1; font-size:26px; margin:0; }
+/* ---- generic city districts by layer index (any case) ---- */
+.cy-dist.d0{ fill:#f1d8a7; } .cy-dist.d1{ fill:#f1b8a7; } .cy-dist.d2{ fill:#b9d8f0; } .cy-dist.d3{ fill:#c9e3c0; }
+.li-0 .cy-f.t{ fill:#fff3d6; } .li-1 .cy-f.t{ fill:#ffe1d6; } .li-2 .cy-f.t{ fill:#e1f0fb; }

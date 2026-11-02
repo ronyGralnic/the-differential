@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>שלב 04 · המסע · Case 03 · המחיקה השקטה · The Differential</title>
+<meta name="description" content="כל רעיון ששרד עובר מסמכים אמיתיים: ייזום, POC, אפיון וארכיטקטורה. עד לאן כל רעיון יגיע?">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Differential">
+<meta property="og:title" content="שלב 04 · המסע · Case 03 · המחיקה השקטה · The Differential">
+<meta property="og:description" content="כל רעיון ששרד עובר מסמכים אמיתיים: ייזום, POC, אפיון וארכיטקטורה. עד לאן כל רעיון יגיע?">
+<meta property="og:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-case="quiet-deletion" data-stage="4" data-next="path.html">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">The Differential</span>
+      <span class="brand-tag">מעבדת פתרונות טכנולוגיים</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../../index.html">ארכיון התיקים</a>
+      <a href="../../documents.html">המסמכים</a>
+      <a href="../../about.html">מי בנה את זה</a>
+      <a class="nav-lang" href="../../en.html" hreflang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="breadcrumb"><a href="../../index.html">ארכיון התיקים</a> ← <a href="index.html">Case 03</a> ← שלב 04</p>
+
+  <nav class="stagebar" aria-label="שלבי התיק">
+    <a class="sb-home" href="index.html" title="הלובי של התיק"><span>Case 03</span></a>
+    <ol><li class="sb-st" data-k="1"><a href="story.html"><b>01</b><span>הסיפור</span></a></li><li class="sb-st" data-k="2"><a href="problems.html"><b>02</b><span>הבעיות</span></a></li><li class="sb-st" data-k="3"><a href="ideas.html"><b>03</b><span>הרעיונות</span></a></li><li class="sb-st cur" data-k="4"><a href="journey.html" aria-current="page"><b>04</b><span>המסע</span></a></li><li class="sb-st" data-k="5"><a href="path.html"><b>05</b><span>המסלול</span></a></li><li class="sb-st" data-k="6"><a href="decision.html"><b>06</b><span>ההכרעה</span></a></li><li class="sb-st" data-k="7"><a href="remains.html"><b>07</b><span>מה נשאר</span></a></li></ol>
+  </nav>
+
+<section class="section" id="tree">
+    <p class="section-label">שלב 04</p>
+    <h2>שבעה קווי עלילה</h2>
+    <p class="lede">
+      שבעה רעיונות התחילו על <a href="ideas.html">הלוח המחיק</a>. שלושה נמחקו שם, וארבעה יצאו
+      לדרך: כל אחד מהם עובר מסמכים אמיתיים, אחד אחרי השני, כמו שעושים בפרויקט אמיתי. לחצו על כרטיס
+      כדי לצפות בהקרנה שלו: מה גילינו בכל מסמך, ואיפה זה נגמר. מי מהם יחזיק מעמד עד הסוף?
+    </p>
+
+    <div class="jv" id="journey" aria-label="המסע שכל רעיון עובר: עץ אנכי של תחנות">
+      <p class="jv-title">המסע שכל רעיון עובר</p>
+      <p class="jv-sub">גזע אחד מהלוח ועד הבחירה הסופית. בכל תחנה יש מסמך אחד, ומי שלא עובר אותו יוצא לענף בצד. הענפים מתמלאים כשאתם צופים בהקרנות.</p>
+      <ol class="jv-trunk">
+        <li class="jv-st root" data-st="board"><span class="jv-dot">03</span><div class="jv-c"><strong>הלוח</strong><span class="jv-doc">חמש שאלות</span><p>שבעה רעיונות נשאלו את אותן חמש שאלות. מי שנכשל, נמחק מהלוח.</p></div><div class="jv-br" data-at="board"><span class="jv-leaf known">Duplicate Voter Matcher</span><span class="jv-leaf known">Offline Mesh Messenger</span><span class="jv-leaf known">Degree-to-Job Radar</span></div></li>
+        <li class="jv-st" data-st="ideation"><span class="jv-dot">01</span><div class="jv-c"><strong>ייזום</strong><span class="jv-doc">מסמך הייזום</span><p>כאן הרעיון צריך לשכנע: איזו בעיה הוא פותר, למי, ולמה עכשיו. מסמך שעונה על השאלה: למה שזה בכלל יהיה קיים?</p><p class="jv-fall">נופל כאן מי שלא מצליח להסביר למה הוא צריך להתקיים.</p></div><div class="jv-br" data-at="1"></div></li>
+        <li class="jv-st" data-st="poc"><span class="jv-dot">02</span><div class="jv-c"><strong>מחקר ו-POC</strong><span class="jv-doc">הוכחת היתכנות</span><p>הניסוי הראשון. בונים גרסה קטנטנה של הליבה ובודקים אם היא באמת עובדת, לפני שמשקיעים בכל השאר.</p><p class="jv-fall">נופל כאן מי שהניסוי מראה שהליבה שלו לא מחזיקה.</p></div><div class="jv-br" data-at="2"></div></li>
+        <li class="jv-st" data-st="spec"><span class="jv-dot">03</span><div class="jv-c"><strong>אפיון</strong><span class="jv-doc">מסמך האפיון</span><p>כאן הרעיון הופך למוצר: מה בדיוק הוא עושה, פיצ'ר אחרי פיצ'ר, ובאילו טכנולוגיות. מסמך שעונה על השאלה: מה בונים?</p><p class="jv-fall">נופל כאן מי שמתברר שהוא מורכב, יקר או חלקי מדי.</p></div><div class="jv-br" data-at="3"></div></li>
+        <li class="jv-st" data-st="arch"><span class="jv-dot">04</span><div class="jv-c"><strong>ארכיטקטורה</strong><span class="jv-doc">מסמך הארכיטקטורה</span><p>התוכנית ההנדסית: איפה כל חלק יושב, איך החלקים מדברים, ומה קורה כשמשהו נשבר. מסמך שעונה על השאלה: איך בונים את זה עד הסוף?</p><p class="jv-fall">נופל כאן מי שמשהו קריטי חסר במבנה שלו.</p></div><div class="jv-br" data-at="4"></div></li>
+        <li class="jv-st end" data-st="final"><span class="jv-dot">05</span><div class="jv-c"><strong>הבחירה הסופית</strong><span class="jv-doc">ההכרעה</span><p>מי שעבר את כל המסמכים עומד מול האחרים, ונשאל את השאלה ששלחה את כל התיק לדרך. את זה תגלו <a href="decision.html">בשלב 06</a>.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="tree cards" id="cand-cards" data-case="quiet-deletion">
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Removal Sample Audit">
+          <span class="cand-num">01</span>
+          <span class="node-title">Removal Sample Audit</span>
+          <span class="cand-blurb">מגרילים בכל מחוז כמה מאות מחיקות, בודקים כל אחת עד הסוף, ומקבלים מספר אחד עם טווח טעות.</span>
+          <span class="cand-q">כמה מהמחיקות שגויות, באמת?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+              <button class="doc-tab" data-doc="poc">מחקר ו-POC</button>
+              <button class="doc-tab" data-doc="spec">אפיון</button>
+              <button class="doc-tab" data-doc="arch">ארכיטקטורה</button>
+            </div>
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="sample-audit"></div>
+            </div>
+            <div class="doc-panel" data-doc="poc">
+              <div class="pl" data-pl="sample-audit"></div>
+            </div>
+            <div class="doc-panel" data-doc="spec">
+              <div class="sp" data-sp="sample-audit"></div>
+            </div>
+            <div class="doc-panel" data-doc="arch">
+              <div class="ar" data-ar="sample-audit"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Duplicate Voter Matcher">
+          <span class="cand-num">02</span>
+          <span class="node-title">Duplicate Voter Matcher</span>
+          <span class="cand-blurb">מודל שמשווה שמות, גילים וכתובות, ומוצא מי רשום פעמיים.</span>
+          <span class="cand-q">עוד מודל יכול לתקן מודל?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Roll Transparency Log">
+          <span class="cand-num">03</span>
+          <span class="node-title">Roll Transparency Log</span>
+          <span class="cand-blurb">כל שינוי ברשימה נכנס ליומן ציבורי שאי אפשר לשכתב, ומי שנמחק מקבל הודעה באותו יום.</span>
+          <span class="cand-q">אפשר לראות מחיקה בלי לחשוף שכנים?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+              <button class="doc-tab" data-doc="poc">מחקר ו-POC</button>
+              <button class="doc-tab" data-doc="spec">אפיון</button>
+              <button class="doc-tab" data-doc="arch">ארכיטקטורה</button>
+              <button class="doc-tab" data-doc="design">מסמך עיצוב</button>
+            </div>
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="roll-log"></div>
+            </div>
+            <div class="doc-panel" data-doc="poc">
+              <div class="pl" data-pl="roll-log"></div>
+            </div>
+            <div class="doc-panel" data-doc="spec">
+              <div class="sp" data-sp="roll-log"></div>
+            </div>
+            <div class="doc-panel" data-doc="arch">
+              <div class="ar" data-ar="roll-log"></div>
+            </div>
+            <div class="doc-panel" data-doc="design">
+              <div class="dz" data-dz="roll-log"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Offline Mesh Messenger">
+          <span class="cand-num">04</span>
+          <span class="node-title">Offline Mesh Messenger</span>
+          <span class="cand-blurb">הודעות שעוברות מטלפון לטלפון בלי רשת, ביום של ניתוק.</span>
+          <span class="cand-q">מה קורה למי שנתפס איתה?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Exam Paper Time-Lock">
+          <span class="cand-num">05</span>
+          <span class="node-title">Exam Paper Time-Lock</span>
+          <span class="cand-blurb">שאלון מוצפן שרק שלושה מחמישה שומרים יחד פותחים, וסימן מים שמצביע על המרכז שדלף.</span>
+          <span class="cand-q">מנעול על קובץ עוצר דליפה מנייר?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+              <button class="doc-tab" data-doc="poc">מחקר ו-POC</button>
+            </div>
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="time-lock"></div>
+            </div>
+            <div class="doc-panel" data-doc="poc">
+              <div class="pl" data-pl="time-lock"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Degree-to-Job Radar">
+          <span class="cand-num">06</span>
+          <span class="node-title">Degree-to-Job Radar</span>
+          <span class="cand-blurb">מפה שמראה לכל צעיר לאן מוביל כל תואר, ובכמה.</span>
+          <span class="cand-q">איפה רשום מי עובד איפה?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tree-node" data-status="neutral">
+        <button class="node-head" data-name="Appeal Clock Simulator">
+          <span class="cand-num">07</span>
+          <span class="node-title">Appeal Clock Simulator</span>
+          <span class="cand-blurb">סימולציה של תור הערעורים מול תאריך הבחירות.</span>
+          <span class="cand-q">מי צריך תאריך שהמפית כבר יודעת?</span>
+          <span class="cand-open">▶ להקרנה</span>
+        </button>
+        <div class="node-body">
+          <div class="node-body-inner">
+            <p class="cand-verdict">זה כל מה שנכתב על הרעיון הזה. עד איזה שלב הוא הגיע? זה מתברר בשלב הבא.</p>
+            <div class="doc-tabs">
+              <button class="doc-tab active" data-doc="ideation">ייזום</button>
+            </div>
+            <div class="doc-panel active" data-doc="ideation">
+              <div class="ix" data-ix="appeal-clock"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="next-stage" aria-label="השלב הבא">
+    <a class="ns-card" href="path.html">
+      <span class="ns-k">השלב הבא · 05</span>
+      <strong class="ns-t">המסלול</strong>
+      <span class="ns-r">כל קווי העלילה על מפה אחת: מי נפל איפה, ולמה.</span>
+      <span class="ns-q">איפה נעצר כל אחד?</span>
+      <span class="ns-go">להמשיך ←</span>
+    </a>
+    <a class="ns-prev" href="ideas.html">→ שלב 03 · הרעיונות</a>
+  </aside>
+
+</main>
+
+<div class="reel" id="reel" hidden role="dialog" aria-modal="true" aria-labelledby="reel-title">
+  <div class="reel-bar top"></div><div class="reel-bar bottom"></div>
+  <div class="reel-fab" id="reel-fab"><button type="button" class="x" id="reel-fab-x" aria-label="יציאה מההקרנה">✕<span>יציאה</span></button></div>
+  <div class="reel-scroll" id="reel-scroll">
+    <div class="reel-col">
+      <div class="reel-head">
+        <button type="button" class="reel-close" id="reel-close" aria-label="סגירה">✕ סגירה</button>
+        <div class="reel-trail" id="reel-trail" aria-hidden="true"></div>
+      </div>
+      <h3 class="reel-title" id="reel-title"></h3>
+      <div class="reel-scenes" id="reel-scenes"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Case 03 · The Differential</p>
+</footer>
+
+<script src="../../assets/js/terms-data.js"></script>
+<script src="../../assets/js/c/quiet-deletion/terms.js"></script>
+<script src="../../assets/js/terms.js"></script>
+<script src="../../assets/js/ideation-data.js"></script>
+<script src="../../assets/js/poc-src.js"></script>
+<script src="../../assets/js/poc-cfg.js"></script>
+<script src="../../assets/js/c/quiet-deletion/case.js"></script>
+<script src="../../assets/js/c/quiet-deletion/ideation.js"></script>
+<script src="../../assets/js/c/quiet-deletion/reels.js"></script>
+<script src="../../assets/js/c/quiet-deletion/theme.js"></script>
+<script src="../../assets/js/c/quiet-deletion/poc.js"></script>
+<script src="../../assets/js/c/quiet-deletion/spec-data.js"></script>
+<script src="../../assets/js/c/quiet-deletion/spec-widgets.js"></script>
+<script src="../../assets/js/c/quiet-deletion/arch-data.js"></script>
+<script src="../../assets/js/c/quiet-deletion/blueprint.js"></script>
+<script src="../../assets/js/c/quiet-deletion/labs.js"></script>
+<script src="../../assets/js/c/quiet-deletion/cities.js"></script>
+<script src="../../assets/js/c/quiet-deletion/worlds.js"></script>
+<script src="../../assets/js/c/quiet-deletion/design-roll-log.js"></script>
+<script src="../../assets/js/poc-lab.js"></script>
+<script src="../../assets/js/spec-widgets.js"></script>
+<script src="../../assets/js/spec-lab.js"></script>
+<script src="../../assets/js/arch-lab.js"></script>
+<script src="../../assets/js/reel-data.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/downloads.js"></script>
+<script src="../../assets/js/reel-fx.js"></script>
+<script src="../../assets/js/case-theme.js"></script>
+<script src="../../assets/js/ixfx.js"></script>
+<script src="../../assets/js/lab.js"></script>
+<script src="../../assets/js/city-engine.js"></script>
+<script src="../../assets/js/blueprint.js"></script>
+<script src="../../assets/js/design.js"></script>
+<script src="../../assets/js/stagenav.js"></script>
+<script src="../../assets/js/track.js"></script>
+<script data-goatcounter="https://rony.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

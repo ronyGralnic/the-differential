@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>שלב 05 · המסלול · Case 03 · המחיקה השקטה · The Differential</title>
+<meta name="description" content="כל קווי העלילה על מפה אחת: מי נפל איפה, ולמה. איפה נעצר כל אחד?">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Differential">
+<meta property="og:title" content="שלב 05 · המסלול · Case 03 · המחיקה השקטה · The Differential">
+<meta property="og:description" content="כל קווי העלילה על מפה אחת: מי נפל איפה, ולמה. איפה נעצר כל אחד?">
+<meta property="og:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-case="quiet-deletion" data-stage="5" data-next="decision.html">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">The Differential</span>
+      <span class="brand-tag">מעבדת פתרונות טכנולוגיים</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../../index.html">ארכיון התיקים</a>
+      <a href="../../documents.html">המסמכים</a>
+      <a href="../../about.html">מי בנה את זה</a>
+      <a class="nav-lang" href="../../en.html" hreflang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="breadcrumb"><a href="../../index.html">ארכיון התיקים</a> ← <a href="index.html">Case 03</a> ← שלב 05</p>
+
+  <nav class="stagebar" aria-label="שלבי התיק">
+    <a class="sb-home" href="index.html" title="הלובי של התיק"><span>Case 03</span></a>
+    <ol><li class="sb-st" data-k="1"><a href="story.html"><b>01</b><span>הסיפור</span></a></li><li class="sb-st" data-k="2"><a href="problems.html"><b>02</b><span>הבעיות</span></a></li><li class="sb-st" data-k="3"><a href="ideas.html"><b>03</b><span>הרעיונות</span></a></li><li class="sb-st" data-k="4"><a href="journey.html"><b>04</b><span>המסע</span></a></li><li class="sb-st cur" data-k="5"><a href="path.html" aria-current="page"><b>05</b><span>המסלול</span></a></li><li class="sb-st" data-k="6"><a href="decision.html"><b>06</b><span>ההכרעה</span></a></li><li class="sb-st" data-k="7"><a href="remains.html"><b>07</b><span>מה נשאר</span></a></li></ol>
+  </nav>
+
+<section class="section" id="flow">
+    <p class="section-label">שלב 05</p>
+    <h2>עד לאן כל אחד הגיע</h2>
+    <p class="lede">
+      כל קו הוא מועמד. כל מסמך על הקו הוא עוד תחנה שהוא שרד. תראו איפה הקווים נקטעים,
+      ותראו איזה קו ממשיך עד הסוף.
+    </p>
+    <div class="flow-wrap" id="flow-wrap">
+<svg class="flow" viewBox="0 0 1180 602" role="img" aria-label="תרשים זרימה: כמה עמוק כל מועמד הגיע בתהליך">
+<text class="fl-head" x="960" y="38" text-anchor="middle">לוח</text>
+<line class="fl-guide" x1="960" y1="52" x2="960" y2="572"/>
+<text class="fl-head" x="800" y="38" text-anchor="middle">ייזום</text>
+<line class="fl-guide" x1="800" y1="52" x2="800" y2="572"/>
+<text class="fl-head" x="640" y="38" text-anchor="middle">מחקר ו-POC</text>
+<line class="fl-guide" x1="640" y1="52" x2="640" y2="572"/>
+<text class="fl-head" x="480" y="38" text-anchor="middle">אפיון</text>
+<line class="fl-guide" x1="480" y1="52" x2="480" y2="572"/>
+<text class="fl-head" x="320" y="38" text-anchor="middle">ארכיטקטורה</text>
+<line class="fl-guide" x1="320" y1="52" x2="320" y2="572"/>
+<text class="fl-head" x="130" y="38" text-anchor="middle">סוף התהליך</text>
+<line class="fl-guide" x1="130" y1="52" x2="130" y2="572"/>
+<text class="fl-head root" x="1110" y="38" text-anchor="middle">הבעיה</text>
+<circle class="fl-root" cx="1110" cy="316.0" r="16"/>
+<path class="fl-line" pathLength="1" style="--d:0" d="M1094 316.0 H1035"/>
+<path class="fl-line" pathLength="1" style="--d:1" d="M1035 100 V532"/>
+<path class="fl-line" pathLength="1" style="--d:2.00" d="M1035 100 H960"/>
+<text class="fl-name" x="1020" y="84" text-anchor="end" direction="ltr">Duplicate Voter Matcher</text>
+<circle class="fl-idea" cx="960" cy="100" r="9" style="--d:2.00"/>
+<text class="fl-x" x="960" y="107" text-anchor="middle" dx="-24" style="--d:2.30">✕</text>
+<text class="fl-note" x="960" y="127" text-anchor="start" direction="rtl">רק רעיון · נפל על הלוח: עוד קופסה שחורה</text>
+<path class="fl-line" pathLength="1" style="--d:2.55" d="M1035 172 H960"/>
+<text class="fl-name" x="1020" y="156" text-anchor="end" direction="ltr">Offline Mesh Messenger</text>
+<circle class="fl-idea" cx="960" cy="172" r="9" style="--d:2.55"/>
+<text class="fl-x" x="960" y="179" text-anchor="middle" dx="-24" style="--d:2.85">✕</text>
+<text class="fl-note" x="960" y="199" text-anchor="start" direction="rtl">רק רעיון · נפל על הלוח: מסוכן, ומחוץ לבעיה</text>
+<path class="fl-line" pathLength="1" style="--d:3.10" d="M1035 244 H960"/>
+<text class="fl-name" x="1020" y="228" text-anchor="end" direction="ltr">Degree-to-Job Radar</text>
+<circle class="fl-idea" cx="960" cy="244" r="9" style="--d:3.10"/>
+<text class="fl-x" x="960" y="251" text-anchor="middle" dx="-24" style="--d:3.40">✕</text>
+<text class="fl-note" x="960" y="271" text-anchor="start" direction="rtl">רק רעיון · נפל על הלוח: אין נתונים</text>
+<path class="fl-line" pathLength="1" style="--d:3.65" d="M1035 316 H800"/>
+<text class="fl-name" x="1020" y="300" text-anchor="end" direction="ltr">Appeal Clock Simulator</text>
+<circle class="fl-idea" cx="960" cy="316" r="9" style="--d:3.65"/>
+<rect class="fl-doc" x="789" y="302" width="22" height="28" rx="3" style="--d:3.85"/>
+<path class="fl-docl" d="M794 310h12M794 316h12M794 322h8"/>
+<text class="fl-x" x="800" y="323" text-anchor="middle" dx="-26" style="--d:3.95">✕</text>
+<text class="fl-note" x="960" y="343" text-anchor="start" direction="rtl">מסמך אחד · נפל בייזום: המפית ענתה קודם</text>
+<path class="fl-line" pathLength="1" style="--d:4.20" d="M1035 388 H640"/>
+<text class="fl-name" x="1020" y="372" text-anchor="end" direction="ltr">Exam Paper Time-Lock</text>
+<circle class="fl-idea" cx="960" cy="388" r="9" style="--d:4.20"/>
+<rect class="fl-doc" x="789" y="374" width="22" height="28" rx="3" style="--d:4.40"/>
+<path class="fl-docl" d="M794 382h12M794 388h12M794 394h8"/>
+<rect class="fl-doc" x="629" y="374" width="22" height="28" rx="3" style="--d:4.60"/>
+<path class="fl-docl" d="M634 382h12M634 388h12M634 394h8"/>
+<text class="fl-x" x="640" y="395" text-anchor="middle" dx="-26" style="--d:4.50">✕</text>
+<text class="fl-note" x="960" y="415" text-anchor="start" direction="rtl">2 מסמכים · נפל ב-POC: הדליפה עוקפת את המנעול</text>
+<path class="fl-line" pathLength="1" style="--d:4.75" d="M1035 460 H320"/>
+<text class="fl-name" x="1020" y="444" text-anchor="end" direction="ltr">Removal Sample Audit</text>
+<circle class="fl-idea" cx="960" cy="460" r="9" style="--d:4.75"/>
+<rect class="fl-doc" x="789" y="446" width="22" height="28" rx="3" style="--d:4.95"/>
+<path class="fl-docl" d="M794 454h12M794 460h12M794 466h8"/>
+<rect class="fl-doc" x="629" y="446" width="22" height="28" rx="3" style="--d:5.15"/>
+<path class="fl-docl" d="M634 454h12M634 460h12M634 466h8"/>
+<rect class="fl-doc" x="469" y="446" width="22" height="28" rx="3" style="--d:5.35"/>
+<path class="fl-docl" d="M474 454h12M474 460h12M474 466h8"/>
+<rect class="fl-doc" x="309" y="446" width="22" height="28" rx="3" style="--d:5.55"/>
+<path class="fl-docl" d="M314 454h12M314 460h12M314 466h8"/>
+<text class="fl-x" x="320" y="467" text-anchor="middle" dx="-26" style="--d:5.05">✕</text>
+<text class="fl-note" x="960" y="487" text-anchor="start" direction="rtl">4 מסמכים · נפל בארכיטקטורה: הבודק מחוץ לגבולות</text>
+<path class="fl-line win" pathLength="1" style="--d:5.30" d="M1035 532 H130"/>
+<text class="fl-name win" x="1020" y="516" text-anchor="end" direction="ltr">Roll Transparency Log</text>
+<circle class="fl-idea" cx="960" cy="532" r="9" style="--d:5.30"/>
+<rect class="fl-doc win" x="789" y="518" width="22" height="28" rx="3" style="--d:5.50"/>
+<path class="fl-docl" d="M794 526h12M794 532h12M794 538h8"/>
+<rect class="fl-doc win" x="629" y="518" width="22" height="28" rx="3" style="--d:5.70"/>
+<path class="fl-docl" d="M634 526h12M634 532h12M634 538h8"/>
+<rect class="fl-doc win" x="469" y="518" width="22" height="28" rx="3" style="--d:5.90"/>
+<path class="fl-docl" d="M474 526h12M474 532h12M474 538h8"/>
+<rect class="fl-doc win" x="309" y="518" width="22" height="28" rx="3" style="--d:6.10"/>
+<path class="fl-docl" d="M314 526h12M314 532h12M314 538h8"/>
+<circle class="fl-win" cx="130" cy="532" r="17" style="--d:5.30"/>
+<text class="fl-trophy" x="130" y="538" text-anchor="middle" style="--d:5.30">★</text>
+<text class="fl-note win" x="960" y="559" text-anchor="start" direction="rtl">5 מסמכים · עבר את כל התחנות</text>
+</svg>
+    </div>
+    <p class="flow-legend"><span><i class="lg idea"></i> רעיון על הלוח</span><span><i class="lg doc"></i> מסמך שנכתב</span><span><i class="lg x">✕</i> נפל</span><span><i class="lg star">★</i> עבר את כל התחנות</span></p>
+    <p class="lede" style="margin-top:18px">שני קווים הגיעו עד לארכיטקטורה, ורק אחד עבר אותה. שניהם עונים על אותה בעיה, המחיקה שאף אחד לא רואה, מכיוונים הפוכים: אחד סופר כמה טעו, השני מראה לכל אדם מה קרה לו. אז למה ההבדל ביניהם משנה כל כך? זה מה ששלב 06 בא לברר.</p>
+  </section>
+
+  <aside class="next-stage" aria-label="השלב הבא">
+    <a class="ns-card" href="decision.html">
+      <span class="ns-k">השלב הבא · 06</span>
+      <strong class="ns-t">ההכרעה</strong>
+      <span class="ns-r">האחרונים עומדים זה מול זה: שאלה אחת, שלושה סיבובים, והימור שלכם.</span>
+      <span class="ns-q">מי נשאר עד הסוף?</span>
+      <span class="ns-go">להמשיך ←</span>
+    </a>
+    <a class="ns-prev" href="journey.html">→ שלב 04 · המסע</a>
+  </aside>
+
+</main>
+
+<footer class="site-footer">
+  <p>Case 03 · The Differential</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/c/quiet-deletion/metro.js"></script><script src="../../assets/js/metro.js"></script>
+<script src="../../assets/js/stagenav.js"></script>
+<script src="../../assets/js/track.js"></script>
+<script data-goatcounter="https://rony.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

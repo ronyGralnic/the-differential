@@ -1,6 +1,8 @@
 /* Spec city engine (any case): the spec as three acts on one isometric island. Mount: .sp[data-sp=slug] with window.CITY[slug] (c/<case>/city-<slug>.js).
    Act 1 · a parallel story everyone knows (config hook act1.setup draws on the ring road and returns {stop})
    Act 2 · the feature city (10 buildings from SPEC[slug].features, 4 districts = SPEC layers, PLAY tour, a pulse travelling the ring)
+   C.world (optional): the case's own analogy instead of the island: {aria, words{area, back, cut, lm{dc,kn,cl}, roomK}, home{desk,mob},
+     scene({S,H,g,reduce})→{path:'d', spots{1..10:[x,y,t 0..1 along the path]}, lms{dc,kn,cl:[x,y]}}, station(g,n,f)→height, lm(g,k), room(n,box)}
    Act 3 · a room per feature (one sentence, the ballot vs ours, a small live model, a comic strip, a cutaway, the full text)
    The original spec stays whole under "המסמך המלא". */
 (function(){
@@ -25,25 +27,49 @@
 
   /* ---------- the island scene ---------- */
   const stage=H('div','cy-stage'); top.append(stage);
-  const svg=S('svg',{viewBox:'0 0 1000 620',class:'cy-svg',role:'img','aria-label':'אי איזומטרי עם כביש טבעתי'}); stage.append(svg);
+  const svg=S('svg',{viewBox:'0 0 1000 620',class:'cy-svg',role:'img','aria-label':(C.world&&C.world.aria)||'אי איזומטרי עם כביש טבעתי'}); stage.append(svg);
   const cam=S('g',{id:'cy-cam'},svg);
   const CX=500, CY=300, SC=50; const iso=(x,y)=>[CX+(x-y)*0.866*SC, CY+(x+y)*0.5*SC-5*SC*0.5*2];
   const P=(x,y)=>{ const [a,b]=iso(x,y); return a.toFixed(1)+','+b.toFixed(1); };
+  const W=C.world; const WD=(W&&W.words)||{};
+  const AREA=WD.area!=null?WD.area:'שכונת '; const LIX={}; D.layers.forEach(([k],i)=>{ LIX[k]=i; });
+  let ringPath, roadG, BLD={}, R=3.1, SPOT_T={};
+  const ICON=C.icons;
+  function station(g,n,f,h){ const badge=S('g',{class:'cy-badge',transform:`translate(0 ${-h-34})`},g); S('circle',{r:17,class:'cy-bc'},badge); const ic=S('g',{class:'cy-ic'},badge); ic.innerHTML=ICON[n];
+    const num=S('text',{x:16,y:-10,class:'cy-num','text-anchor':'middle'},badge); num.textContent=n;
+    const lab=S('text',{x:0,y:24,class:'cy-bl','text-anchor':'middle'},g); lab.textContent=f.title;
+    const lw=S('text',{x:0,y:38,class:'cy-bl waze','text-anchor':'middle'},g); lw.textContent='';
+    g.addEventListener('click',()=>openRoom(n)); g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openRoom(n); } }); return lw; }
+  function lmWire(g,k,t){ g.addEventListener('click',()=>openSection(k,t)); g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openSection(k,t); } }); }
+  const LMT=[['dc','צומת ההחלטות','הכיוונים שבחרנו, ומה שוויתרנו עליו'],['kn','מגדל התצפית',C.lmKn||'המחוון החי'],['cl','הגשר','מה האפיון סגר, ומה נשאר פתוח']].map(([k,t,d])=>[k,(WD.lm&&WD.lm[k])||t,d]);
+  if(W){
+    // a world of the case's own analogy (config): scenery, a path, ten stations and three landmarks
+    const wG=S('g',{class:'cy-world',transform:'translate(0,-14)'},cam);
+    const out=W.scene({S,H,g:wG,reduce,F,LAY});
+    roadG=wG; ringPath=S('path',{d:out.path,id:'cy-ringpath',fill:'none',stroke:'none'},wG);
+    const lmG=S('g',{class:'cy-lms'},wG);
+    LMT.forEach(([k,t,d])=>{ const [x,y]=out.lms[k]; const g=S('g',{class:'cy-lm '+k,transform:`translate(${x} ${y})`,tabindex:'0',role:'button','aria-label':t+': '+d},lmG); W.lm(g,k,{S}); const lb=S('text',{x:0,y:16,class:'cy-lml','text-anchor':'middle'},g); lb.textContent=t; lmWire(g,k,t); });
+    const bG=S('g',{class:'cy-blds'},wG);
+    for(let n=1;n<=10;n++){ const f=F[n]; const [x,y,t]=out.spots[n]; SPOT_T[n]=t;
+      const g=S('g',{class:'cy-b cy-st l-'+f.layer+' li-'+LIX[f.layer],transform:`translate(${x} ${y})`,tabindex:'0',role:'button','aria-label':'פיצ\'ר '+n+': '+f.title+'. '+f.line,style:`--n:${n}`},bG);
+      S('ellipse',{cx:0,cy:4,rx:24,ry:8,class:'cy-sh'},g); const body=S('g',{class:'cy-bb'},g); const h=W.station(body,n,f,{S})||40;
+      const lw=station(g,n,f,h); if(n%2===0) g.querySelectorAll('.cy-bl').forEach(t=>t.setAttribute('y',+t.getAttribute('y')+26)); BLD[n]={g,x,y:y-14-h/2,ang:0,lw}; }
+  } else {
   // water & island
   S('rect',{x:-500,y:-400,width:2000,height:1400,class:'cy-water'},cam);
   for(let i=0;i<14;i++) S('path',{d:`M${-100+i*90} ${560+ (i%3)*14} q20 -8 40 0 q20 8 40 0`,class:'cy-wave',style:`--i:${i}`},cam);
   S('polygon',{points:[P(-0.6,-0.6),P(10.6,-0.6),P(10.6,10.6),P(-0.6,10.6)].join(' '),class:'cy-cliff'},cam);
   S('polygon',{points:[P(-0.6,-0.6),P(10.6,-0.6),P(10.6,10.6),P(-0.6,10.6)].join(' '),class:'cy-land',transform:'translate(0,-14)'},cam);
   // districts (sectors) by layer
-  const ANGS=[[-165,-75],[-60,30],[40,100],[110,195]]; const DIST={}; const LIX={}; D.layers.forEach(([k],i)=>{ DIST[k]=ANGS[i]; LIX[k]=i; });
+  const ANGS=[[-165,-75],[-60,30],[40,100],[110,195]]; const DIST={}; D.layers.forEach(([k],i)=>{ DIST[k]=ANGS[i]; });
   const sector=(a0,a1,r0,r1)=>{ const pts=[]; for(let a=a0;a<=a1;a+=5){ const t=a*Math.PI/180; pts.push(P(5+r1*Math.cos(t),5+r1*Math.sin(t))); } for(let a=a1;a>=a0;a-=5){ const t=a*Math.PI/180; pts.push(P(5+r0*Math.cos(t),5+r0*Math.sin(t))); } return pts.join(' '); };
   const distG=S('g',{class:'cy-dists',transform:'translate(0,-14)'},cam);
-  Object.entries(DIST).forEach(([k,[a0,a1]])=>{ S('polygon',{points:sector(a0,a1,3.65,5.35),class:'cy-dist '+k+' d'+LIX[k]},distG); const am=(a0+a1)/2*Math.PI/180; const [lx,ly]=iso(5+5.75*Math.cos(am),5+5.75*Math.sin(am)); const t=S('text',{x:lx,y:ly-8,class:'cy-dlab','text-anchor':'middle'},distG); t.textContent='שכונת '+LAY[k]; });
+  Object.entries(DIST).forEach(([k,[a0,a1]])=>{ S('polygon',{points:sector(a0,a1,3.65,5.35),class:'cy-dist '+k+' d'+LIX[k]},distG); const am=(a0+a1)/2*Math.PI/180; const [lx,ly]=iso(5+5.75*Math.cos(am),5+5.75*Math.sin(am)); const t=S('text',{x:lx,y:ly-8,class:'cy-dlab','text-anchor':'middle'},distG); t.textContent=AREA+LAY[k]; });
   // ring road
-  const R=3.1; const ring=[]; for(let a=0;a<=360;a+=4){ const t=a*Math.PI/180; ring.push(P(5+R*Math.cos(t),5+R*Math.sin(t))); }
-  const roadG=S('g',{transform:'translate(0,-14)'},cam);
+  R=3.1; const ring=[]; for(let a=0;a<=360;a+=4){ const t=a*Math.PI/180; ring.push(P(5+R*Math.cos(t),5+R*Math.sin(t))); }
+  roadG=S('g',{transform:'translate(0,-14)'},cam);
   S('polyline',{points:ring.join(' '),class:'cy-road'},roadG); S('polyline',{points:ring.join(' '),class:'cy-lane'},roadG);
-  const ringPath=S('path',{d:'M'+ring.join(' L'),id:'cy-ringpath',fill:'none',stroke:'none'},roadG);
+  ringPath=S('path',{d:'M'+ring.join(' L'),id:'cy-ringpath',fill:'none',stroke:'none'},roadG);
   // trees & center
   [[1,1.3],[8.9,1.2],[1.2,8.8],[8.8,8.9],[5,5],[4.2,5.6],[5.8,4.3]].forEach(([x,y],i)=>{ const [a,b]=iso(x,y); const g=S('g',{class:'cy-tree',transform:`translate(${a} ${b-14})`},cam); S('ellipse',{cx:0,cy:2,rx:9,ry:4,class:'cy-sh'},g); S('rect',{x:-2,y:-10,width:4,height:12,class:'cy-trunk'},g); S('circle',{cx:0,cy:-16,r:10,class:'cy-leaf'},g); });
   // landmarks: decisions signpost (center), observation tower, bridge under construction
@@ -57,8 +83,8 @@
     g.addEventListener('click',()=>openSection(k,t)); g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openSection(k,t); } }); });
   // buildings
   const ANG={1:-150,2:-120,3:-90,4:-45,5:-15,6:15,7:55,8:85,9:130,10:165};
-  const ICON=C.icons;
-  const bG=S('g',{class:'cy-blds'},cam); const BLD={};
+
+  const bG=S('g',{class:'cy-blds'},cam);
   for(let n=1;n<=10;n++){ const f=F[n]; const t=ANG[n]*Math.PI/180; const x=5+4.45*Math.cos(t), y=5+4.45*Math.sin(t); const [a,b]=iso(x,y); const h=34+(n%3)*14;
     const g=S('g',{class:'cy-b l-'+f.layer+' li-'+LIX[f.layer],transform:`translate(${a} ${b-14})`,tabindex:'0',role:'button','aria-label':'פיצ\'ר '+n+': '+f.title+'. '+f.line,style:`--n:${n}`},bG);
     const w=22; const top=[[0,-h-w*0.5],[w*0.87,-h],[0,-h+w*0.5],[-w*0.87,-h]];
@@ -74,6 +100,7 @@
     const lw=S('text',{x:0,y:38,class:'cy-bl waze','text-anchor':'middle'},g); lw.textContent='';
     g.addEventListener('click',()=>openRoom(n)); g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openRoom(n); } });
     BLD[n]={g,x:a,y:b-14-h/2,ang:ANG[n],lw}; }
+  }
   let act=null;
 
   /* ---------- side panel ---------- */
@@ -102,7 +129,7 @@
   setMode('waze');
 
   /* ---------- camera ---------- */
-  const MOB=innerWidth<700; const HOME=MOB?[170,20,660,560]:[0,0,1000,620]; let vb=HOME.slice(), anim=null; svg.setAttribute('viewBox',HOME.join(' '));
+  const MOB=innerWidth<700; const HOME=(W&&W.home)?(MOB?W.home.mob:W.home.desk):(MOB?[170,20,660,560]:[0,0,1000,620]); let vb=HOME.slice(), anim=null; svg.setAttribute('viewBox',HOME.join(' '));
   function camTo(t,dur){ const from=vb.slice(); const t0=performance.now(); dur=reduce?1:(dur||900); cancelAnimationFrame(anim);
     const st=(now)=>{ const k=Math.min(1,(now-t0)/dur), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; vb=from.map((v,i)=>v+(t[i]-v)*e); svg.setAttribute('viewBox',vb.map(v=>v.toFixed(1)).join(' ')); if(k<1) anim=requestAnimationFrame(st); }; anim=requestAnimationFrame(st); }
   const home=()=>camTo(HOME); const zoomB=n=>{ const b=BLD[n]; camTo([b.x-210,b.y-140,420,260]); };
@@ -111,7 +138,7 @@
   const EX=C.ex;
   let tour=null;
   function tourShow(i){ const n=i+1, f=F[n]; zoomB(n); Object.values(BLD).forEach(b=>b.g.classList.remove('hl')); BLD[n].g.classList.add('hl');
-    card.hidden=false; card.innerHTML=''; const hd=H('div','cy-ch'); hd.append(H('span','cy-cn',n+' / 10'),H('strong','',f.title),H('small','','שכונת '+LAY[f.layer])); card.append(hd);
+    card.hidden=false; card.innerHTML=''; const hd=H('div','cy-ch'); hd.append(H('span','cy-cn',n+' / 10'),H('strong','',f.title),H('small','',AREA+LAY[f.layer])); card.append(hd);
     const r1=H('p'); r1.innerHTML='<b>מה זה:</b> '; r1.append(f.line); card.append(r1);
     const r2=H('p'); r2.innerHTML='<b>למה צריך:</b> '; r2.append(f.hook.split(/(?<=[.!?])\s/)[0]); card.append(r2);
     const r3=H('p','cy-wz'); r3.innerHTML='<b>'+C.wazeLabel+':</b> '; r3.append(WAZE[n]); card.append(r3);
@@ -124,16 +151,16 @@
   pM.querySelector('[data-a="play"]').addEventListener('click',()=>{ if(mode!=='market') setMode('market'); tour={i:0,t:null}; stage.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); camTo(MOB?HOME:[60,40,880,545],700); setTimeout(()=>{ tourShow(0); tour.t=reduce?null:setInterval(()=>tourGo(tour.i+1),6500); tourShow(0); },reduce?0:800); });
   pM.querySelector('[data-a="home"]').addEventListener('click',()=>{ tourEnd(); });
   // shock pulse around the ring
-  pM.querySelector('[data-a="shock"]').addEventListener('click',()=>{ const dot=S('circle',{r:12,class:'cy-pulse'},roadG); const t0=performance.now(), dur=reduce?10:5200;
+  pM.querySelector('[data-a="shock"]').addEventListener('click',()=>{ const dot=S('circle',{r:12,class:'cy-pulse'},roadG); const pathLen=ringPath.getTotalLength(); const t0=performance.now(), dur=reduce?10:5200;
     const lit=new Set(); const go=(now)=>{ const k=Math.min(1,(now-t0)/dur); const L=k*pathLen; const p=ringPath.getPointAtLength(L); dot.setAttribute('cx',p.x); dot.setAttribute('cy',p.y);
-      const deg=(k*360); for(let n=1;n<=10;n++){ let a=(BLD[n].ang+360)%360; if(deg>=a&&!lit.has(n)){ lit.add(n); BLD[n].g.classList.add('zap'); setTimeout(()=>BLD[n].g.classList.remove('zap'),1600); } }
+      const deg=(k*360); for(let n=1;n<=10;n++){ const hit=W?k>=SPOT_T[n]:deg>=(BLD[n].ang+360)%360; if(hit&&!lit.has(n)){ lit.add(n); BLD[n].g.classList.add('zap'); setTimeout(()=>BLD[n].g.classList.remove('zap'),1600); } }
       if(k<1) requestAnimationFrame(go); else dot.remove(); }; requestAnimationFrame(go); });
 
   /* ---------- rooms ---------- */
   const KIND={shelf:'טכנולוגיה קיימת',compose:'חיבור שבנינו',ours:'החלטה שלנו'};
   let ov=null, cur=0;
   function shell(title,tag){ if(!ov){ ov=H('div','cy-ov'); ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true'); document.body.append(ov); document.addEventListener('keydown',key); }
-    ov.innerHTML=''; const hd=H('div','cy-ovh'); const back=H('button','cy-back','→ חזרה לעיר'); back.type='button'; back.addEventListener('click',closeOv);
+    ov.innerHTML=''; const hd=H('div','cy-ovh'); const back=H('button','cy-back',WD.back||'→ חזרה לעיר'); back.type='button'; back.addEventListener('click',closeOv);
     const tt=H('div','cy-ovt'); tt.append(H('span','cy-tag',tag),H('h3','',title)); hd.append(back,tt); ov.append(hd); const body=H('div','cy-ovb'); ov.append(body); ov.setAttribute('aria-label',title);
     requestAnimationFrame(()=>ov.classList.add('on')); back.focus({preventScroll:true}); return {hd,body}; }
   function key(e){ if(e.key==='Escape') closeOv(); }
@@ -142,15 +169,16 @@
   function openSection(k,t){ const map={dc:'sp-dc',kn:'sp-kn',cl:'sp-cl'}; const el=full.querySelector('.'+map[k]); if(!el) return;
     const {body}=shell(t,k==='dc'?'צומת':k==='kn'?'מגדל':'גשר'); moved={el,home:el.parentNode,next:el.nextSibling}; el.classList.add('in'); body.append(el); }
   function openRoom(n){ cur=n; const f=F[n]; if(tour&&tour.t){ clearInterval(tour.t); tour.t=null; }
-    const {hd,body}=shell(f.title,'פיצ\'ר '+n+' · שכונת '+LAY[f.layer]);
+    const {hd,body}=shell(f.title,'פיצ\'ר '+n+' · '+AREA+LAY[f.layer]);
     const nav=H('div','cy-nav'); const pv=H('button','cy-btn','‹ הקודם'), nx=H('button','cy-btn go','הבא ›'); pv.type=nx.type='button'; pv.disabled=n===1; nx.disabled=n===10; pv.addEventListener('click',()=>openRoom(n-1)); nx.addEventListener('click',()=>openRoom(n+1));
     const mini=H('div','cy-mini'); for(let k=1;k<=10;k++){ const d=H('button',k===n?'on':''); d.type='button'; d.textContent=k; d.setAttribute('aria-label','פיצ\'ר '+k+': '+F[k].title); d.addEventListener('click',()=>openRoom(k)); mini.append(d); }
     nav.append(pv,mini,nx); hd.append(nav);
     const g=H('div','cy-room');
+    if(W&&W.room){ const z=H('section','cy-r0'); z.append(H('span','cy-k',(WD.roomK||'באותו עולם')+': '+WAZE[n])); const zb=H('div','cy-wroom'); z.append(zb); W.room(n,zb,{S,H,reduce}); g.append(z); }
     const a=H('section','cy-r1'); a.append(H('p','cy-one',f.line)); const pair=H('div','cy-pair'); const w=H('div','cy-pw'); w.append(H('span','cy-k',C.wazeLabel),H('p','',WAZE[n])); const o=H('div','cy-po'); o.append(H('span','cy-k','אצלנו'),H('p','',f.hook)); pair.append(w,o); a.append(pair,H('p','cy-ex',EX[n])); g.append(a);
     const m=H('section','cy-r2'); m.append(H('span','cy-k','מודל קטן לשחק בו')); const mb=H('div','cy-model'); m.append(mb); MODEL[n](mb); g.append(m);
     const c=H('section','cy-r3'); c.append(H('span','cy-k','איך זה עובד, בתמונות')); const strip=H('div','cy-comic'); (f.how||[]).slice(0,4).forEach((t,i)=>{ const p=H('div','cy-cp'); p.style.setProperty('--i',i); p.append(H('b','',String(i+1)),H('p','',t)); strip.append(p); }); c.append(strip); g.append(c);
-    const cut=H('section','cy-r4'); cut.append(H('span','cy-k','חתך של הבניין: הקומות הן הטכנולוגיות'));
+    const cut=H('section','cy-r4'); cut.append(H('span','cy-k',WD.cut||'חתך של הבניין: הקומות הן הטכנולוגיות'));
     const bld=H('div','cy-cut'); (f.built||[]).slice().reverse().forEach(b=>{ const fl=H('div','cy-floor '+b.kind); fl.append(H('b','',b.name),H('small','',KIND[b.kind]||'')); bld.append(fl); }); bld.append(H('div','cy-ground'));
     const lg=H('div','cy-lg'); Object.entries(KIND).forEach(([k,l])=>lg.append(H('span','cy-floor-k '+k,l))); cut.append(bld,lg); g.append(cut);
     const deep=H('details','cy-deep'); deep.append(H('summary','','לרדת לעומק: כל הטקסט של הפיצ\'ר'));

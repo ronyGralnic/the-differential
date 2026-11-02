@@ -1,7 +1,7 @@
 /* Stage 07 engine (any case), after epilogue.js has rendered. Content: window.EPILOGUE[case].v2 (see c/<case>/sky.js). "After the lights went out": the messages as a night sky
    (stars by stage and domain, constellation lines from the existing links), where the characters are now, what we would do differently,
    the reader's own recap (stages, guesses, bet, terms opened; localStorage only), the case glossary (printable), a three-question check,
-   the shelf of every Case 02 document, and a bridge to Case 01. The old notes board stays, folded. */
+   the shelf of every document, the case glossary (only this case's terms: V.terms list or V.termPrefix), and a bridge to Case 01. The old notes board stays, folded. */
 (function(){
   function boot(){
   const root=document.getElementById('epilogue'); if(!root||root.dataset.c2) return; const CASE=root.dataset.case; const E0=window.EPILOGUE&&window.EPILOGUE[CASE]; if(!E0||!E0.v2) return; const V=E0.v2;
@@ -52,7 +52,7 @@
 
   /* 4 · your recap + glossary + check */
   const rc=blk('ec-rec'); rc.append(H('h4','ep-h','הדרך שלכם'),H('p','ep-p','מה עשיתם בתיק הזה. הכול נשמר רק בדפדפן שלכם.'));
-  const seenSt=ls('td-seen-'+CASE,[]).map(Number); const G=ls('td-wb-'+CASE,{}); const bet=ls('td-bet-'+CASE,null); const T=window.TERMS||{}; const opened=ls('td-terms',[]).filter(k=>T[k]);
+  const seenSt=ls('td-seen-'+CASE,[]).map(Number); const G=ls('td-wb-'+CASE,{}); const bet=ls('td-bet-'+CASE,null); const T0=window.TERMS||{}; const T={}; Object.keys(T0).filter(k=>V.terms?V.terms.includes(k):V.termPrefix?k.startsWith(V.termPrefix):true).forEach(k=>T[k]=T0[k]); const opened=ls('td-terms',[]).filter(k=>T[k]);
   const tiles=H('div','ec-tiles');
   const st=H('div','ec-tile'); const dots=H('div','ec-sd'); for(let n=1;n<=7;n++){ const d=H('i',seenSt.includes(n)?'on':'','0'+n); dots.append(d); } st.append(H('small','','שלבים שביקרתם בהם'),H('b','',seenSt.filter(n=>n>=1&&n<=7).length+' מתוך 7'),dots); tiles.append(st);
   const gn=Object.keys(G); const gk=gn.filter(n=>G[n].g===G[n].go).length; const t2=H('div','ec-tile'); t2.append(H('small','','ניחושים על הלוח, שלב 03'),H('b','',gn.length?gk+' מתוך '+gn.length:'עוד לא')); if(!gn.length){ const a=H('a','','לנחש ←'); a.href='ideas.html'; t2.append(a); } tiles.append(t2);

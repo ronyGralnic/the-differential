@@ -1,6 +1,7 @@
 /* Stage 04 · the reel, upgraded (engine, any case). Content: window.REEL_FX / REEL_FX_EXTRA keyed by candidate name (c/<case>/reel-fx*.js):
    - every chapter looks like its document (ideation = napkin sketch, POC = lab bench, spec = feature cards, architecture = blueprint)
    - a live background per candidate, a peek at the real PDF, one interactive moment per chapter, and the recurring character
+   - cut.anim(fig) (optional): an animated figure of the fall, drawn into the cut screen
    - the journey tree fills its side branches as the reader finishes reels (stored per viewer, no spoilers up front) */
 (function(){
   const reel=document.getElementById('reel'), scenes=document.getElementById('reel-scenes'), titleEl=document.getElementById('reel-title');
@@ -44,7 +45,8 @@
     const p=cut.querySelector('p:not(.kick)'); if(!p) return;
     const box=H('div','rx-cut'); C.lines.forEach(t=>box.append(H('p','',t))); if(C.like){ const lk=H('div','rx-like'); lk.append(H('span','rx-k','כמו ש...'),H('p','',C.like)); box.append(lk); }
     const fig=H('div','rx-cutfig'); fig.innerHTML=C.fig||'';
-    if(C.fig!==false) box.append(fig); box.append(H('p','rx-punch',C.punch));
+    if(typeof C.anim==='function'){ fig.innerHTML=''; fig.classList.add('rx-cutanim'); C.anim(fig); box.append(fig); }
+    else if(C.fig!==false) box.append(fig); box.append(H('p','rx-punch',C.punch));
     const CH=cfg.char||{name:'',svg:''}; const sr=H('div','rx-sarah dark'); const av=H('span','rx-av'); av.innerHTML=CH.svg; const st=H('div'); st.append(H('span','rx-k',CH.name),H('p','',C.sarah)); sr.append(av,st); box.append(sr,H('p','rx-q',C.q));
     p.replaceWith(box);
   }

@@ -118,6 +118,7 @@
     pop=H('div','tm-pop'); pop.setAttribute('role','dialog'); pop.setAttribute('aria-modal','false'); pop.setAttribute('aria-label','מה זה '+d.t);
     const hd=H('div','tm-hd'); hd.append(H('span','tm-k','מה זה?'),H('h4','tm-t',d.t)); const x=H('button','tm-x','✕'); x.type='button'; x.setAttribute('aria-label','סגירה'); x.addEventListener('click',close); hd.append(x); pop.append(hd);
     pop.append(H('p','tm-one',d.one));
+    if(d.anim&&!ANIM[d.anim]&&window.TERM_ANIM&&window.TERM_ANIM[d.anim]){ const f=window.TERM_ANIM[d.anim]; ANIM[d.anim]=()=>f({A,TR,RO,KT,coin,txt,person,bank,doc,svg}); }
     if(d.anim&&ANIM[d.anim]){ const an=H('div','tm-anim'); an.innerHTML=ANIM[d.anim](); pop.append(an); const s=an.querySelector('svg'); if(reduce&&s&&s.pauseAnimations){ s.pauseAnimations(); s.setCurrentTime(4); } }
     const y=H('div','tm-sec tm-you'); y.append(H('span','tm-l','מהחיים שלכם'),H('p','',d.you)); pop.append(y);
     if(d.who){ const w=H('div','tm-sec tm-who'); const av=H('span','tm-av',d.who[0].trim().charAt(0)); const b=H('div'); b.append(H('span','tm-l','מכירים את'),H('strong','',d.who[0]),H('p','',d.who[1])); w.append(av,b); pop.append(w); }
@@ -126,7 +127,7 @@
     pop.append(H('p','tm-note','הדמויות בחלון הזה בדויות.'));
     document.body.append(pop);
     place(btn);
-    requestAnimationFrame(()=>pop.classList.add('on'));
+    requestAnimationFrame(()=>{ if(pop) pop.classList.add('on'); });
     x.focus({preventScroll:true});
     document.addEventListener('keydown',onKey); setTimeout(()=>document.addEventListener('pointerdown',onOut,true),0);
   }

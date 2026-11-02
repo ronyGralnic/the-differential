@@ -36,7 +36,7 @@
   let cur=-1;
   function play(i){ const el=sEls[i]; el.classList.remove('play'); void el.offsetWidth; el.classList.add('play'); el.querySelectorAll('[data-to]').forEach(countUp); }
   function show(i){ if(i===cur) return; cur=i; sEls.forEach((e,j)=>e.classList.toggle('on',j===i)); [...dots.children].forEach((b,j)=>{ b.classList.toggle('on',j===i); b.setAttribute('aria-current',j===i?'step':'false'); });
-    chs.forEach((c,j)=>c.classList.toggle('on',j===i)); if(window.__stRG) window.__stRG.hidden=(i!==5); sname.textContent=(i+1)+' · '+SC[i].n; play(i); markTL(i+1); }
+    chs.forEach((c,j)=>c.classList.toggle('on',j===i)); if(window.__stRG) window.__stRG.hidden=(i!==(C.interAt==null?5:C.interAt)); sname.textContent=(i+1)+' · '+SC[i].n; play(i); markTL(i+1); }
   document.getElementById('st-replay').addEventListener('click',()=>{ if(cur>=0) play(cur); });
   if('IntersectionObserver' in window){
     const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting) show(chs.indexOf(e.target)); }); },{rootMargin:'-45% 0px -45% 0px'});
@@ -45,7 +45,8 @@
     chs.forEach(c=>cio.observe(c));
   }
 
-  /* r vs g */
+  /* interactive scene (r vs g in Case 02, appeal queue in Case 03) */
+  if(typeof C.inter==="function") C.inter(sEls);
 
   /* ---------- timeline ---------- */
   const tl=document.getElementById('st-timeline');

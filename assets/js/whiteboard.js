@@ -20,7 +20,7 @@
   const surf=H('div','wb-surface'); wb.append(surf);
   // ghost residue + corner date + legend
   const ghost=H('div','wb-ghost'); ghost.setAttribute('aria-hidden','true'); ghost.innerHTML=C.ghost; surf.append(ghost);
-  const old=H('a','wb-oldlink',C.old[0]); old.href=C.old[1]; surf.append(old);
+  if(C.old){ const old=H('a','wb-oldlink',C.old[0]); old.href=C.old[1]; surf.append(old); }
   const top=H('div','wb-top'); top.append(H('span','wb-date',C.date),H('span','wb-brand','THE DIFFERENTIAL')); surf.append(top);
   // funnel
   const fn=H('div','wb-funnel'); fn.innerHTML=`<svg viewBox="0 0 720 170" class="wb-fsvg" role="img" aria-label="${NP} בעיות נכנסות, ${I.length} רעיונות יוצאים, וחמש שאלות מסננות אותם">

@@ -75,7 +75,7 @@
   /* 5 · the shelf */
   const sh=blk('ec-shelf'); sh.append(H('h4','ep-h','מדף המסמכים'),H('p','ep-p','כל מסמך שנכתב בתיק, של כל רעיון, עד התחנה שבה הוא נעצר. בעברית ובאנגלית.'));
   const DOCS=V.docs;
-  const KN={ideation:'ייזום',poc:'POC',spec:'אפיון',arch:'ארכיטקטורה','adr-log':'יומן החלטות',design:'מסמך עיצוב','threat-model':'מודל האיום',decision:'ההכרעה'};
+  const KN={ideation:'ייזום',poc:'POC',spec:'אפיון',arch:'ארכיטקטורה','adr-log':'יומן החלטות',design:'מסמך עיצוב','threat-model':'מודל האיום',decision:'ההכרעה',dpia:'הערכת פרטיות',records:'רשומות וסיווג','spec-onepager':'אפיון בעמוד'};
   DOCS.forEach(([n,slug,pk,ks])=>{ const row=H('div','ec-row'); row.append(H('b','ec-rn',n)); const shelf=H('div','ec-books'); ks.forEach(k=>{ const c=H('div','ec-book'); const im=H('img'); im.alt=''; im.loading='lazy'; im.src='../../assets/img/peek/'+pk+'-'+k+'-p1.jpg'; im.onerror=()=>im.remove(); const t=H('div'); t.append(H('span','',KN[k])); const a=H('span','ec-bl'); [['עב','he'],['EN','en']].forEach(([l,lg])=>{ const x=H('a','',l); x.href='downloads/'+slug+'-'+k+'-'+lg+'.pdf'; x.setAttribute('download',''); x.setAttribute('aria-label',KN[k]+' · '+n+' · '+(lg==='he'?'עברית':'English')); a.append(x); }); t.append(a); c.append(im,t); shelf.append(c); }); row.append(shelf); sh.append(row); });
   sh.append(H('p','ep-q','איזה מסמך הייתם קוראים ראשון, ולמה דווקא אותו?')); rc.after(sh);
 

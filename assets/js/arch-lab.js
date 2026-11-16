@@ -235,7 +235,7 @@
 
     /* ===== 11. downloads ===== */
     const dd=sec('sp-dl',C.dl_h,C.dl_p); const dg2=H('div','sp-dlg'); dd.append(dg2);
-    [[C.dl_he,C.dl_he_d,'he','HE','-arch-'],[C.dl_en,C.dl_en_d,'en','EN','-arch-'],['מסמך עיצוב מלא: מחלקות, מצבים, רצף, תהליכונים וטבלאות','','he','HE','-design-'],['Full design document: classes, states, sequence, threads and tables','','en','EN','-design-']].forEach(([t,d,k,lg2,kind])=>{ const c=H('div','sp-dlc'); if(lg2==='EN') c.setAttribute('dir','ltr'); c.append(H('span','sp-dlb',lg2),H('b','',t)); if(d) c.append(H('i','',d));
+    [[C.dl_he,C.dl_he_d,'he','HE','-arch-'],[C.dl_en,C.dl_en_d,'en','EN','-arch-'],['מסמך עיצוב מלא: מחלקות, מצבים, רצף, תהליכונים וטבלאות','','he','HE','-design-'],['Full design document: classes, states, sequence, threads and tables','','en','EN','-design-']].forEach(([t,d,k,lg2,kind])=>{ if(kind==='-design-'&&D.nodesign) return; const c=H('div','sp-dlc'); if(lg2==='EN') c.setAttribute('dir','ltr'); c.append(H('span','sp-dlb',lg2),H('b','',t)); if(d) c.append(H('i','',d));
       const a=H('div','sp-dla'); ['pdf','docx'].forEach(x=>{ const l=H('a','',x.toUpperCase()); l.href=D.dl.replace('-arch-',kind)+k+'.'+x; l.setAttribute('download',''); a.append(l); }); c.append(a); dg2.append(c); });
     closeQ(dd,C.dl_q);
   }

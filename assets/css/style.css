@@ -2137,6 +2137,9 @@ body.st-plain .st-ch{ opacity:1; }
 .wb-why{ margin:0; font-size:16px; line-height:1.65; }
 .wb-vt.green .wb-why{ color:var(--mk-green); } .wb-vt.red .wb-why{ color:var(--mk-red); }
 .wb-myst{ margin:2px 0 0; font-size:19px; font-weight:700; color:var(--mk-green); }
+.wb-say{ display:flex; gap:10px; align-items:flex-start; margin-top:10px; padding:8px 10px; border:2px dashed var(--mk-blue,#2b5aa8); border-radius:14px 14px 14px 2px; background:rgba(255,255,255,.55); }
+.wb-say svg{ width:42px; height:42px; flex:0 0 42px; }
+.wb-say p{ margin:0; font-size:15px; line-height:1.55; }
 .wb-fallfig{ max-width:230px; } .wb-fig{ width:100%; height:auto; display:block; }
 /* the eraser leaves a ghost of the fallen idea */
 .wb-card.is-out .wb-body{ position:relative; }
@@ -3399,3 +3402,4 @@ body.st-plain .st-ch{ opacity:1; }
 /* ---- generic city districts by layer index (any case) ---- */
 .cy-dist.d0{ fill:#f1d8a7; } .cy-dist.d1{ fill:#f1b8a7; } .cy-dist.d2{ fill:#b9d8f0; } .cy-dist.d3{ fill:#c9e3c0; }
 .li-0 .cy-f.t{ fill:#fff3d6; } .li-1 .cy-f.t{ fill:#ffe1d6; } .li-2 .cy-f.t{ fill:#e1f0fb; }
+.fz-scr p{ margin:4px 0 0; line-height:1.55; } .fz-stamp.bad{ border-color:#ff8a6a; color:#ff8a6a; }

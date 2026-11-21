@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>The Differential · English summary</title>
-<meta name="description" content="Real news stories turned into complete engineering projects through a step-by-step elimination. Case 01: who holds the AI kill switch? Case 02: seeing a slow-motion debt crisis before it turns fast. Case 03: letting one voter see, in time, what happened to their name. Case 04: remembering what was promised after the people who promised it have left.">
+<meta name="description" content="Real news stories turned into complete engineering projects through a step-by-step elimination. Case 01: who holds the AI kill switch? Case 02: seeing a slow-motion debt crisis before it turns fast. Case 03: letting one voter see, in time, what happened to their name. Case 04: remembering what was promised after the people who promised it have left. Case 05: seeing, in time, whether the money at the top of the AI funnel will arrive.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Differential">
 <meta property="og:title" content="The Differential · English summary">
-<meta property="og:description" content="Real news stories turned into complete engineering projects, from article to architecture. Case 01: who holds the AI kill switch? Case 02: seeing a slow-motion debt crisis before it turns fast. Case 03: letting one voter see, in time, what happened to their name. Case 04: remembering what was promised after the people who promised it have left.">
+<meta property="og:description" content="Real news stories turned into complete engineering projects, from article to architecture. Case 01: who holds the AI kill switch? Case 02: seeing a slow-motion debt crisis before it turns fast. Case 03: letting one voter see, in time, what happened to their name. Case 04: remembering what was promised after the people who promised it have left. Case 05: seeing, in time, whether the money at the top of the AI funnel will arrive.">
 <meta property="og:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -92,6 +92,23 @@
       <a class="ab-card" href="cases/expiring-promises/downloads/desk-memory-design-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">STAGE 5</span><h3>Design document</h3><p>Classes, states, sequence, concurrency, threads and tables.</p></a>
       <a class="ab-card" href="cases/expiring-promises/downloads/desk-memory-records-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">RECORDS</span><h3>Records and classification plan</h3><p>Whose records they are, and what happens on transition day.</p></a>
       <a class="ab-card" href="cases/expiring-promises/downloads/expiring-promises-decision-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">DECISION</span><h3>The final comparison</h3><p>Why memory beat rehearsal: whoever holds the thread holds the memory.</p></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">CASE 05</p>
+    <h2>The funnel</h2>
+    <p class="lede">An AI developer heads for a giant IPO while trillions are poured into data centres, chips and power at the bottom of the funnel. By one calculation the buildout needs about $3 trillion of revenue a year by 2030; about $200 billion comes in today, and the indirect indicators contradict each other. The case recommends no stock and judges no company; it asks how to see, in time, whether the money will arrive. Seven solution ideas set out; most fell for concrete reasons. The survivor is the Payback Meter: it measures every decode step inside the serving engine, splits shared GPU time by the memory each request held, and writes one append-only row per request with cost, revenue and version. Above the rows: margin by use, a payback clock per model version, a customer statement, and a gate that releases only segments to the market. Disclosure: the site is built with Claude, a model made by Anthropic, the company at the centre of the story.</p>
+    <div class="ab-links"><a href="cases/the-funnel/index.html">Open the interactive case (Hebrew)</a></div>
+    <h3>The winning project, in English (PDF)</h3>
+    <div class="ab-grid">
+      <a class="ab-card" href="cases/the-funnel/downloads/payback-meter-ideation-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">STAGE 1</span><h3>Ideation</h3><p>Purpose, audience, existing solutions, challenges.</p></a>
+      <a class="ab-card" href="cases/the-funnel/downloads/payback-meter-poc-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">STAGE 2</span><h3>Research and PoC</h3><p>2,400 simulated requests: an 84.3% average margin hides a coding agent at 61%.</p></a>
+      <a class="ab-card" href="cases/the-funnel/downloads/payback-meter-spec-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">STAGE 3</span><h3>Specification</h3><p>Ten features in four layers, from the step meter to the industry index.</p></a>
+      <a class="ab-card" href="cases/the-funnel/downloads/payback-meter-arch-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">STAGE 4</span><h3>Architecture</h3><p>A sidecar per server, a queue, an append-only ledger and one export gate.</p></a>
+      <a class="ab-card" href="cases/the-funnel/downloads/payback-meter-design-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">STAGE 5</span><h3>Design document</h3><p>Classes, states, sequence, concurrency, threads and tables.</p></a>
+      <a class="ab-card" href="cases/the-funnel/downloads/payback-meter-costing-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">COSTING</span><h3>Cost allocation method</h3><p>How a shared GPU step is split, and how the method may change.</p></a>
+      <a class="ab-card" href="cases/the-funnel/downloads/the-funnel-decision-en.pdf" style="text-decoration:none;color:inherit"><span class="tag">DECISION</span><h3>The final comparison</h3><p>Why measuring beat forecasting: whoever measures inside holds the truth.</p></a>
     </div>
   </section>
 

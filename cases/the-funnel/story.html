@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>שלב 01 · הסיפור · Case 05 · המשפך · The Differential</title>
+<meta name="description" content="בום ה-AI והחשבון שלו: ציר זמן, שתי דמויות שעוברות את כל הסיפור, וכל מושג מוסבר במקום. איך בוחרים מספר, כשלא ברור מתי יגיע העתיד?">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Differential">
+<meta property="og:title" content="שלב 01 · הסיפור · Case 05 · המשפך · The Differential">
+<meta property="og:description" content="בום ה-AI והחשבון שלו: ציר זמן, שתי דמויות שעוברות את כל הסיפור, וכל מושג מוסבר במקום. איך בוחרים מספר, כשלא ברור מתי יגיע העתיד?">
+<meta property="og:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ronygralnic.github.io/the-differential/assets/og.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-case="the-funnel" data-stage="1" data-next="problems.html">
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">The Differential</span>
+      <span class="brand-tag">מעבדת פתרונות טכנולוגיים</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../../index.html">ארכיון התיקים</a>
+      <a href="../../documents.html">המסמכים</a>
+      <a href="../../about.html">מי בנה את זה</a>
+      <a class="nav-lang" href="../../en.html" hreflang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="breadcrumb"><a href="../../index.html">ארכיון התיקים</a> ← <a href="index.html">Case 05</a> ← שלב 01</p>
+
+  <nav class="stagebar" aria-label="שלבי התיק">
+    <a class="sb-home" href="index.html" title="הלובי של התיק"><span>Case 05</span></a>
+    <ol><li class="sb-st cur" data-k="1"><a href="story.html" aria-current="page"><b>01</b><span>הסיפור</span></a></li><li class="sb-st" data-k="2"><a href="problems.html"><b>02</b><span>הבעיות</span></a></li><li class="sb-st" data-k="3"><a href="ideas.html"><b>03</b><span>הרעיונות</span></a></li><li class="sb-st" data-k="4"><a href="journey.html"><b>04</b><span>המסע</span></a></li><li class="sb-st" data-k="5"><a href="path.html"><b>05</b><span>המסלול</span></a></li><li class="sb-st" data-k="6"><a href="decision.html"><b>06</b><span>ההכרעה</span></a></li><li class="sb-st" data-k="7"><a href="remains.html"><b>07</b><span>מה נשאר</span></a></li></ol>
+  </nav>
+
+<section class="section st-story" id="article">
+    <p class="section-label">שלב 01</p>
+    <h2>המשפך</h2>
+    <p class="lede">
+      לפי דיווח של The Economist על ההנפקה של Anthropic וכלכלת הבינה המלאכותית, נובמבר 2026.
+      הקייס לא ממליץ על שום מניה ולא שופט שום חברה: הוא מביא את מה שהדיווח מתאר, ומחפש בעיה שאפשר לפתור עם קוד.
+      גילוי נאות: האתר נבנה בעזרת Claude, מודל של Anthropic, החברה שבמרכז הדיווח. לכן Anthropic מקבלת כאן בדיוק את היחס של כל חברה אחרת בסיפור, בלי שבחים ובלי הנחות.
+      כל מושג מסומן אפשר לפתוח בלחיצה, עם הסבר, אנימציה ודוגמה מהחיים. ושתי דמויות ילוו אתכם
+      לאורך כל הסיפור, אחת בראש המשפך ואחת בתחתית. מוכנים?
+    </p>
+    <div class="st-tools">
+      <button type="button" class="st-mode" id="st-mode" aria-pressed="false">רק לקרוא, בלי אנימציות</button>
+    </div>
+
+    <div class="st-timeline" id="st-timeline" aria-label="ציר הזמן של הסיפור: לחצו על נקודה כדי לקפוץ לפרק"></div>
+
+    <div class="st-cast" id="st-cast"></div>
+
+    <div class="st-wrap" id="st-wrap">
+      <div class="st-text">
+
+        <article class="st-ch" data-ch="1" data-who="jake">
+          <p class="st-kick">פרק 1 · לבחור מספר</p>
+          <p>גם <button class="tm" data-t="fn-valuation">הערכת שווי</button> של חברה וגם עתיד הבינה המלאכותית הם, בסוף, שאלות של לוח זמנים. כמה כסף יגיע, ומתי. עכשיו Anthropic, מפתחת ה-AI הטהורה הגדולה הראשונה, נכנסת לבורסה ב<button class="tm" data-t="fn-ipo">הנפקה</button>. ה<button class="tm" data-t="fn-prospectus">תשקיף</button> שלה מתאר דרכים מדהימות, ורווחיות, שבהן AI יכול לשנות את הכלכלה, ובאותה נשימה מזהיר את הקונים: "ההחלטות שלנו עשויות לנגוד את הציפיות של המשקיעים", למשל השקעות "שעשויות להיראות גדולות באופן לא אחראי". ובכל זאת, איפשהו בין אוטופיה לארמגדון, המשקיעים צריכים לבחור מספר. <strong>היעד: שווי של כ-1.5 טריליון דולר,</strong> אחת מ-15 החברות הציבוריות הגדולות בעולם. איך בוחרים מספר, כשלא ברור מתי יגיע העתיד?</p>
+        </article>
+
+        <article class="st-ch" data-ch="2" data-who="rosa">
+          <p class="st-kick">פרק 2 · רגע רעוע</p>
+          <p>ההנפקה מגיעה ברגע רעוע. חששות מהחוב שנלקח לבניית <button class="tm" data-t="fn-dc">דאטה סנטרים</button> התנגשו ב<button class="tm" data-t="fn-midterms">בחירות האמצע</button>, שבהן ניצחו מועמדים ספקנים כלפי AI. לפני כל זה, Anthropic נראתה בדרך לשווי של 2 טריליון ויותר. OpenAI, המתחרה העיקרית, דחתה את ההנפקה שלה לשנה הבאה. המניה של Nvidia הייתה כ-30% מתחת לשיא, וה-<button class="tm" data-t="fn-neocloud">neoclouds</button>, שלווים הרבה כדי להפעיל דאטה סנטרים, ירדו עוד יותר. ובכל זאת, אולי יש תפנית: CoreWeave, אחת הגדולות שבהן, קפצה 25% ב-11 בנובמבר אחרי דוח חזק, ולפי הדיווחים ההנפקה של Anthropic ב<button class="tm" data-t="fn-oversub">רישום יתר</button>. <strong>מהרגע הזה, ה-AI כולו יישפט בעיניים של וול סטריט.</strong> מה ישאלו המשקיעים, כשיבדקו מקרוב?</p>
+        </article>
+
+        <article class="st-ch" data-ch="3" data-who="rosa">
+          <p class="st-kick">פרק 3 · שלושה טריליון</p>
+          <p>הם ישאלו אם הטכנולוגיה יכולה לייצר מספיק כסף כדי להצדיק את השווי הזה, ואת הבנייה העצומה שמתוכננת לשנים הקרובות. לפי חישוב של The Economist, <strong>ה-AI צריך כ-3 טריליון דולר הכנסות ב-2030</strong> כדי שהבנייה תניב <button class="tm" data-t="fn-return">תשואה רגילה</button>. גם סטין ואן נויוורבורג מקולומביה וצמד חוקרים מסטנפורד הגיעו למספרים דומים. כדי להבין כמה זה: כל השכר וההטבות של כל העובדים באמריקה מגיעים לכ-16.5 טריליון דולר, ובמדינות ה-OECD לכ-35. כלומר, ה-AI יצטרך לתבוע <button class="tm" data-t="fn-wages">כמעט עשירית מהשכר</button> של העולם העשיר. או שכל הכלכלה תצמח מהר מאוד. מאיפה יגיעו 3 טריליון?</p>
+        </article>
+
+        <article class="st-ch" data-ch="4" data-who="jake">
+          <p class="st-kick">פרק 4 · המשפך</p>
+          <p>בינתיים, ה-AI עוד לא שם. Anthropic דיווחה על <button class="tm" data-t="fn-runrate">הכנסה בקצב שנתי</button> של 81 מיליארד דולר בסוף אוקטובר, ו-OpenAI על 50 מיליארד בסוף ספטמבר. עם המפתחות הקטנות, ועם ההכנסות של Google, Meta ו-Microsoft מהמודלים שלהן, מגיעים לכ-200 מיליארד. כל הכסף הזה נכנס לראש <button class="tm" data-t="fn-funnel">משפך</button>, ויורד למטה: המודלים רצים על <button class="tm" data-t="fn-chip">שבבים</button> שמתוכננים בעיקר ב-Nvidia ומיוצרים ב-TSMC, השבבים צריכים <button class="tm" data-t="fn-memory">זיכרון</button> (מחסור ב-RAM הקפיץ באביב את Samsung ו-SK Hynix), הכול יושב בדאטה סנטרים, וצריך חשמל, "גשם של כסף" ליצרני <button class="tm" data-t="fn-turbine">טורבינות הגז</button>. <strong>כל עולם ה-AI נשען על כך שהזרם בראש המשפך ימשיך, ויגדל.</strong> מה קורה אם הוא מאט?</p>
+        </article>
+
+        <article class="st-ch" data-ch="5" data-who="jake">
+          <p class="st-kick">פרק 5 · סדר גודל אחד</p>
+          <p>מ-200 מיליארד ל-3 טריליון זו קפיצה של <button class="tm" data-t="fn-oom">סדר גודל</button>, OOM בשפה של עמק הסיליקון. האם זה יקרה? קשה לדעת, כי רבים מהשחקנים פרטיים. הקפיצה הקודמת הייתה מהירה: ההכנסות המשותפות של Anthropic, OpenAI ומפתחות קטנות חצו 10 מיליארד בערך במרץ 2025, והיום הן 130 מיליארד. אבל הבאה תהיה קשה יותר. <strong><button class="tm" data-t="fn-proxy">מדדים עקיפים</button> כמו Ramp ו-TickerTrends מראים האטה:</strong> מודל שמחבר אותם להכנסות שפורסמו מראה שהצמיחה התלת-חודשית ירדה מ-80-90% באביב ל-12% באוקטובר. לא כל המדדים קודרים: OpenRouter מראה זינוק. ואחרי ההנפקה, דרישות הדיווח יחשפו כל האטה. מתי תגיעו ל-3 טריליון? בתרחיש למטה תחשבו בעצמכם.</p>
+        </article>
+
+        <article class="st-ch" data-ch="6" data-who="jake">
+          <p class="st-kick">פרק 6 · מחוץ לבועה</p>
+          <p>כלכלה של טריליון דולר הייתה משנה את העולם. כלכלה של מאה מיליארד עוד לא. מחוץ לענף עצמו, ההשפעה מוגבלת: שולי הרווח וההכנסה לעובד זינקו אצל <button class="tm" data-t="fn-seven">"שבע המופלאות"</button>, וכמעט שטוחים אצל 493 החברות האחרות. מניות ה<button class="tm" data-t="fn-saas">תוכנה</button> התאוששו מהמכה של תחילת השנה. ה<button class="tm" data-t="fn-prod">פריון</button> באמריקה חזק, אבל לא הרבה יותר מבתחילת העשור, ו<button class="tm" data-t="fn-bond">שוקי האג"ח</button> לא נראים כמי שמחכים לקפיצה. <strong>רק מקצוע אחד באמת התהפך: הנדסת תוכנה,</strong> שבה מתכנתים מפקחים על "צבאות" של <button class="tm" data-t="fn-agent">סוכנים</button>. חברה מגובת הון סיכון מוציאה כ-100 דולר לעובד בחודש על AI, חברה רגילה כ-10. Goldman Sachs אסרה כלי קוד על לא מהנדסים, JPMorgan דווקא מכפילה. ובינתיים, לפי מחקר של METR, קצב השיפור של המודלים אולי הוכפל, וכל קפיצה יקרה יותר מהקודמת. מי ישלם על הקפיצה הבאה?</p>
+        </article>
+
+        <article class="st-ch" data-ch="7" data-who="jake">
+          <p class="st-kick">פרק 7 · תוכנה הפוכה</p>
+          <p>לעת עתה, מכירת גישה ל-AI היא עסק מצוין: <strong><button class="tm" data-t="fn-margin">שולי הרווח הגולמי</button> של Anthropic בחציון הראשון היו 85%.</strong> במבט ראשון, זה נראה כמו הדור הקודם של הצלחות התוכנה. אבל הכלכלה שונה. לתוכנה רגילה היה <button class="tm" data-t="fn-moat">חפיר</button> רחב: <button class="tm" data-t="fn-switch">מעבר</button> למתחרה היה יקר, <button class="tm" data-t="fn-network">אפקט רשת</button> עזר לגדולים, ואחרי שהמוצר נבנה, לקוח נוסף כמעט לא עלה. במודלים, זה כמעט הפוך. המעבר טריוויאלי: כלים כמו OpenRouter הופכים אותו לשינוי של שורת קוד, ו"צ'טבוט אחד נראה כמו אחר". Cursor מציע תפריט נפתח בין ספקים, ו-Instinct מחליט לבד מאחורי הקלעים. ולכל לקוח חדש יש עלות: כל שאילתה רצה בדאטה סנטר יקר, על שבב נדיר. מה מחזיק לקוח, כשהמתחרה במרחק שורה?</p>
+        </article>
+
+        <article class="st-ch" data-ch="8" data-who="jake">
+          <p class="st-kick">פרק 8 · חלון של שבועות</p>
+          <p>עד עכשיו, כוח התמחור של Anthropic ו-OpenAI החזיק: לקוחות מוכנים לשלם פרמיה על המודל הכי טוב. אבל בקצב הנוכחי, <strong>כל מודל מקבל חלון צר, שבועות או לכל היותר חודשים, להחזיר את עלות האימון שלו</strong> לפני שמחליף עוקף אותו. וכשרמת יכולת מסוימת מושגת, היא הופכת ל<button class="tm" data-t="fn-commodity">סחורה</button>. המודל הסיני הטוב ביותר ב<button class="tm" data-t="fn-bench">מדד של Epoch</button>, Kimi K3.1 Pro, מקבל ציון דומה למודל האמריקאי המוביל של לפני חצי שנה. חוקרים ב-Bridgewater מצאו שמודל סיני קטן ו<button class="tm" data-t="fn-tune">מכוונן</button> ניצח את המובילים בעיבוד מסמכים פיננסיים. מצד שני, שימושים כמו מסחר ואבטחה תמיד ידרשו את הטוב ביותר, כוח החישוב הופך לחפיר, ו-Anthropic אומרת שהיא משתפרת בחסימת <button class="tm" data-t="fn-distill">זיקוק</button>. החברות מנסות גם מודלים חדשים: כלים לתחומים, <button class="tm" data-t="fn-jv">מיזם משותף</button> עם Blackstone ו-Goldman, ואולי <button class="tm" data-t="fn-prop">"מסחר עצמי"</button>, שימוש במודל בעצמן, בתרופות או ברובוטיקה. כמה זמן יש לכל מודל להחזיר את עצמו?</p>
+        </article>
+
+        <article class="st-ch st-closer" data-ch="9" data-who="both">
+          <p class="st-kick">פרק 9 · מהומת האמצע</p>
+          <p>ואז הפוליטיקה. בחירות האמצע היו הבחירות הגדולות הראשונות שבהן AI "עמד על הקלפי", והוא לא הצליח. לפי The Economist, בוחרים שגרים ליד אתר דאטה סנטר זזו בכ-5 נקודות לכיוון הדמוקרטים, יותר מבוחרים דומים במקומות אחרים. <strong>ב-40 מתוך 41 <button class="tm" data-t="fn-referendum">משאלי עם</button> מקומיים, הבוחרים בחרו להגביל דאטה סנטרים.</strong> בטקסס, שבה כשליש מהבנייה של אמריקה, נבחרה למושלת ג'ינה הינוחוסה, שקראה ל<button class="tm" data-t="fn-moratorium">השהיה</button>, ומאז ריככה את הטון. במדינות כאלה יש 25.6 <button class="tm" data-t="fn-gw">ג׳יגהוואט</button> של דאטה סנטרים שעוד לא התחילו, כמעט חצי מכל הקיבולת של אמריקה היום. מצד שני, דאטה סנטרים רווחיים מספיק כדי לשלם לקהילות, ואפשר להגיע להסכמים. ורגולציה פדרלית עלולה להגיע מהר, אם, למשל, מתקפת סייבר רצינית תהפוך את סיכוני ה-AI לנושא מרכזי. והדיווח נגמר בשאלה פתוחה: האם לוול סטריט תהיה הסבלנות לחכות?</p>
+          <p class="case-closer">זו התמונה: זרם כסף שצריך לגדול פי 15, לקוחות שעוברים בשורת קוד, מודלים שחיים שבועות, ושכנים שמצביעים נגד. ואף אחד לא רואה בזמן אמת את הצינור. עכשיו נשאר לשאול: מה בעצם שבור כאן, ואיזה חלק ממנו אפשר לפתור עם קוד?</p>
+        </article>
+
+      </div>
+      <div class="st-scene-col" aria-hidden="false">
+        <div class="st-stage" id="st-stage">
+          <div class="st-scenes" id="st-scenes"></div>
+          <div class="st-sbar">
+            <span class="st-sname" id="st-sname"></span>
+            <button type="button" class="st-replay" id="st-replay" aria-label="להפעיל את הסיטואציה שוב">↻ שוב</button>
+          </div>
+          <div class="st-dots" id="st-dots" role="tablist" aria-label="פרקים"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="st-quiz" id="st-quiz"></div>
+  </section>
+
+  <aside class="next-stage" aria-label="השלב הבא">
+    <a class="ns-card" href="problems.html">
+      <span class="ns-k">השלב הבא · 02</span>
+      <strong class="ns-t">הבעיות</strong>
+      <span class="ns-r">פורשים על לוח השעם את מה שבאמת שבור, ונכנסים לממצאים של כל בעיה.</span>
+      <span class="ns-q">מה בעצם שבור כאן?</span>
+      <span class="ns-go">להמשיך ←</span>
+    </a>
+    <a class="ns-prev" href="index.html">→ ללובי של התיק</a>
+  </aside>
+
+</main>
+
+<footer class="site-footer">
+  <p>Case 05 · The Differential</p>
+</footer>
+
+<script src="../../assets/js/terms-data.js"></script>
+<script src="../../assets/js/c/the-funnel/terms.js"></script>
+<script src="../../assets/js/terms.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/c/the-funnel/story.js"></script>
+<script src="../../assets/js/story.js"></script>
+<script src="../../assets/js/stagenav.js"></script>
+<script src="../../assets/js/track.js"></script>
+<script data-goatcounter="https://rony.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

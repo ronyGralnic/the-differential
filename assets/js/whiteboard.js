@@ -61,7 +61,10 @@
     const vt=H('div','wb-vt '+(d.go?'green':'red'));
     if(d.go){ vt.append(H('p','wb-stamp','ממשיך לחקירה'),H('p','wb-why',d.v),H('p','wb-myst',d.q)); }
     else { vt.append(H('p','wb-stamp',d.fall)); const f=H('div','wb-fallfig'); f.innerHTML=FIG[d.fig]; vt.append(f,H('p','wb-why',d.v)); }
-    ver.append(vt); c.append(ver);
+    ver.append(vt);
+    // optional (Case 05+): a recurring character reacts to the verdict · d.say=[avatarKey,name,line], avatars in C.AV
+    if(d.say){ const sy=H('div','wb-say'); sy.innerHTML=((C.AV||{})[d.say[0]]||''); const sp=H('p'); sp.append(H('b','',d.say[1]+': '),document.createTextNode(d.say[2])); sy.append(sp); ver.append(sy); }
+    c.append(ver);
     const reveal=(guess)=>{ if(c.classList.contains('done')) return; c.classList.add('done'); done++;
       const right=guess===null?null:(guess===d.go); if(right) ok++;
       if(guess!==null){ try{ const K='td-wb-'+CASE; const o=JSON.parse(localStorage.getItem(K)||'{}'); o[d.n]={g:guess,go:d.go}; localStorage.setItem(K,JSON.stringify(o)); }catch(e){} }
